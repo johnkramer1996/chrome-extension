@@ -1,0 +1,159 @@
+@font-face {
+  font-family: Plain;
+  font-style: normal;
+  font-weight: 100;
+  src:
+    local("TT Commons Thin"),
+    url("./fonts/Plain-Thin.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: italic;
+  font-weight: 100;
+  src:
+    local("TT Commons Thin Italic"),
+    url("./fonts/Plain-ThinItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: normal;
+  font-weight: 200;
+  src:
+    local("TT Commons Ultralight"),
+    url("./fonts/Plain-Ultralight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: italic;
+  font-weight: 200;
+  src:
+    local("TT Commons Ultralight Italic"),
+    url("./fonts/Plain-UltralightItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local("TT Commons Light"),
+    url("./fonts/Plain-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: italic;
+  font-weight: 300;
+  src:
+    local("TT Commons Light Italic"),
+    url("./fonts/Plain-LightItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: normal;
+  font-weight: normal;
+  src:
+    local("TT Commons Regular"),
+    url("./fonts/Plain-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: italic;
+  font-weight: normal;
+  src:
+    local("TT Commons Italic"),
+    url("./fonts/Plain-RegularItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local("TT Commons Medium"),
+    url("./fonts/Plain-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: italic;
+  font-weight: 500;
+  src:
+    local("TT Commons Medium Italic"),
+    url("./fonts/Plain-MediumItalic.otf") format("opentype");
+}
+
+/* @font-face {
+    font-family: 'Plain';
+    font-style: normal;
+    font-weight: 600;
+    src: local('TT Commons DemiBold'),
+        url('./fonts/Plain-DemiBold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Plain';
+    font-style: italic;
+    font-weight: 600;
+    src: local('TT Commons DemiBold Italic'),
+        url('./fonts/Plain-DemiBoldItalic.otf') format('opentype');
+} */
+
+@font-face {
+  font-family: Plain;
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local("TT Commons Bold"),
+    url("./fonts/Plain-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: italic;
+  font-weight: 700;
+  src:
+    local("TT Commons Bold Italic"),
+    url("./fonts/Plain-BoldItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: normal;
+  font-weight: 800;
+  src:
+    local("TT Commons ExtraBold"),
+    url("./fonts/Plain-Extrabold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: italic;
+  font-weight: 800;
+  src:
+    local("TT Commons ExtraBold Italic"),
+    url("./fonts/Plain-ExtraboldItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: normal;
+  font-weight: 900;
+  src:
+    local("TT Commons Black"),
+    url("./fonts/Plain-Black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Plain;
+  font-style: italic;
+  font-weight: 900;
+  src:
+    local("TT Commons Black Italic"),
+    url("./fonts/Plain-BlackItalic.otf") format("opentype");
+}
