@@ -1,0 +1,5 @@
+export { ErrorPage } from './error-page/ErrorPage'
+export { LoginPage } from './login-page/LoginPage'
+export { MainPage } from './main-page/MainPage'
+export { NotFoundPage } from './not-found-page/NotFoundPage'
+export { PasswordResetPage } from './password-reset/PasswordResetPage'

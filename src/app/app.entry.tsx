@@ -1,29 +1,32 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import { createRoot } from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
+import { appRouter } from './app.router'
+import { ToastContainer } from 'react-toastify'
+import { appStore, persistedStore } from './app.store'
+import { Provider as ReduxProvider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
+import { worker } from './mock/browser'
 import { CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material'
 import { theme } from './theme'
+import 'react-toastify/dist/ReactToastify.css'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <GlobalStyles
-        styles={{
-          body: {
-            fontFamily: 'Plain',
-            fontSize: '16px',
-            lineHeight: '1.5',
-            minHeight: 'calc(100vh + 100px)',
-            background:
-              'linear-gradient(295.01deg, #92C5FF 2.69%, rgba(59, 78, 106, 0.814312) 10.71%, rgba(5, 5, 15, 0.7) 23.66%, #05050F 36.23%, rgba(5, 5, 15, 0.6) 66.55%, rgba(64, 86, 116, 0.769137) 83.87%, #92C5FF 94.18%);',
-          },
-          img: {
-            verticalAlign: 'top',
-          },
-        }}
-      />
-      <CssBaseline />
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>,
-)
+const root = document.getElementById('root') as HTMLElement
+
+const start = async () => await worker.start({ onUnhandledRequest: 'bypass', quiet: true })
+
+start().then(async () => {
+  createRoot(root).render(
+    // <React.StrictMode>
+    // </React.StrictMode>
+    <ReduxProvider store={appStore}>
+      <PersistGate loading={null} persistor={persistedStore}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles styles={{}} />
+          <CssBaseline />
+          <RouterProvider router={appRouter()} />
+          <ToastContainer position='bottom-right' />
+        </ThemeProvider>
+      </PersistGate>
+    </ReduxProvider>,
+  )
+})

@@ -1,6 +1,6 @@
 import { Box, Stack } from '@mui/material'
 import { Pie, PieChart, Cell } from 'recharts'
-import { Parameters } from 'shared/ui'
+import { Parameters } from 'widgets'
 
 export const CustomedPieChart = () => {
   return (

@@ -1,5 +1,7 @@
-export { Actions } from './actions/Actions'
+export { Auth } from './auth/Auth'
 export { Header } from './header/Header'
+export { Parameters } from './parameters/Parameters'
 export { CustomedPieChart as PieChart } from './pie-chart/PieChart'
 export { CustomedRadarChart as RadarChart } from './radar-chart/RadarChart'
 export { TableProducts } from './table/Table'
+export { TableActions } from './table-actions/TableActions'
