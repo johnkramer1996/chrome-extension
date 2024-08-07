@@ -87,8 +87,9 @@ export const theme = createTheme({
       styleOverrides: {
         body: {
           minHeight: '100vh',
-          width: 1920,
           margin: '0 auto',
+          minWidth: 700,
+          // overflow: 'hidden',
         },
       },
     },

@@ -1,4 +1,4 @@
-import { Navigate, createBrowserRouter } from 'react-router-dom'
+import { Navigate, createBrowserRouter, createMemoryRouter } from 'react-router-dom'
 import { PATH_PAGE } from 'shared/lib'
 import { BaseLayout } from './layouts/base.layout'
 import { GuestGuard } from './guards/GuestGuard'
@@ -22,6 +22,7 @@ export const appRouter = () => {
         },
         { path: PATH_PAGE[404], element: <NotFoundPage /> },
         { path: PATH_PAGE.error, element: <ErrorPage /> },
+        { path: 'index.html', element: <Navigate to={PATH_PAGE.root} replace /> },
         { path: '*', element: <Navigate to={PATH_PAGE[404]} replace /> },
       ],
     },

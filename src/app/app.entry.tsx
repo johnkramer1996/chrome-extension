@@ -5,14 +5,19 @@ import { ToastContainer } from 'react-toastify'
 import { appStore, persistedStore } from './app.store'
 import { Provider as ReduxProvider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-import { worker } from './mock/browser'
 import { CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material'
 import { theme } from './theme'
 import 'react-toastify/dist/ReactToastify.css'
 
+const body = document.querySelector('body')
+const app = document.createElement('div')
+app.id = 'root'
+if (body) body.prepend(app)
+
 const root = document.getElementById('root') as HTMLElement
 
-const start = async () => await worker.start({ onUnhandledRequest: 'bypass', quiet: true })
+// const start = async () => await worker.start({ onUnhandledRequest: 'bypass', quiet: true })
+const start = async () => Promise.resolve()
 
 start().then(async () => {
   createRoot(root).render(

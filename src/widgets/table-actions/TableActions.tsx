@@ -32,7 +32,7 @@ export const TableActions = () => {
         <Button
           color='dark'
           sx={{
-            height: 44,
+            height: { lg: 44, xs: 40 },
             boxShadow: '0px 0px 15px rgba(82, 149, 224, 0.5)',
             backgroundColor: 'rgba(15,15,19, .6)',
             fontSize: 14,

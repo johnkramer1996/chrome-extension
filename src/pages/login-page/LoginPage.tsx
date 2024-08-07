@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Container, styled, Typography } from '@mui/material'
 import { LoginForm } from 'features/session'
 import { Auth } from 'widgets'
 

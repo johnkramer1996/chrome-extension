@@ -12,7 +12,7 @@ export const Auth = ({ children, hasBackButton }: { children: ReactNode; hasBack
     <Box pt={2}>
       <Container>
         <Grid container justifyContent={'space-between'} alignItems={'center'}>
-          <Grid item xl={6} xs={12}>
+          <Grid item xl={6} lg={9} xs={12}>
             <Box minHeight={60}>
               {hasBackButton && (
                 <Button
@@ -27,7 +27,7 @@ export const Auth = ({ children, hasBackButton }: { children: ReactNode; hasBack
             </Box>
             <AuthIntro pl={16} maxWidth={585} />
           </Grid>
-          <Grid item xl={5} xs={12}>
+          <Grid item xl={5} lg={3} xs={12}>
             {children}
           </Grid>
         </Grid>
