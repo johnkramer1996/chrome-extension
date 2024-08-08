@@ -1,10 +1,5 @@
 import { Box, Button, Container, Stack } from '@mui/material'
 import { TableActions, TableProducts } from 'widgets'
-// import '@fontsource/roboto/300.css'
-// import '@fontsource/roboto/400.css'
-// import '@fontsource/roboto/500.css'
-// import '@fontsource/roboto/700.css'
-import 'assets/fonts/plain/style.css'
 
 export const MainPage = () => (
   <>
