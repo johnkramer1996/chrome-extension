@@ -11,7 +11,7 @@ export const CustomedPieChart = () => {
   const div = isPopup ? 1.3 : 1
 
   return (
-    <Box height={255} position={'relative'} pt={2} sx={{ ...addStyleIfTrue(isPopup, { pt: 7 }) }}>
+    <Box height={250} position={'relative'} pt={2} sx={{ ...addStyleIfTrue(isPopup, { pt: 7 }) }}>
       <PieChart width={280 / div} height={140 / div} style={{ margin: '0 auto' }}>
         <Pie
           data={[

@@ -15,24 +15,35 @@ export const Parameters = () => {
       direction={'row'}
       justifyContent={'space-between'}
       spacing={2}
-      mt={1}
       pl={9}
-      pr={4}
+      pr={6}
       sx={{ ...addStyleIfTrue(isPopup, { pl: 0, pr: 0 }) }}
     >
       <Box>
-        <Box color={'#B5B5B5'} fontSize={14} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 12 }) }}>
+        <Box color={'#B5B5B5'} lineHeight={1.3} fontSize={14} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 12 }) }}>
           Parameter 1
         </Box>
-        <Box color={'#FE5858'} fontSize={24} fontWeight={500} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 20 }) }}>
+        <Box
+          color={'#FE5858'}
+          lineHeight={1.3}
+          fontSize={24}
+          fontWeight={500}
+          sx={{ ...addStyleIfTrue(isPopup, { fontSize: 20 }) }}
+        >
           $350,39
         </Box>
       </Box>
       <Box>
-        <Box color={'#B5B5B5'} fontSize={14} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 12 }) }}>
+        <Box color={'#B5B5B5'} lineHeight={1.3} fontSize={14} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 12 }) }}>
           Parameter 2
         </Box>
-        <Box color={'#8AFF6C'} fontSize={24} fontWeight={500} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 20 }) }}>
+        <Box
+          color={'#8AFF6C'}
+          lineHeight={1.3}
+          fontSize={24}
+          fontWeight={500}
+          sx={{ ...addStyleIfTrue(isPopup, { fontSize: 20 }) }}
+        >
           $1.350,39
         </Box>
       </Box>

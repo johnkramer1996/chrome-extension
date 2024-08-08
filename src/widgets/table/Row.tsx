@@ -169,7 +169,14 @@ const RowBottom = ({ open }: Props) => {
               >
                 <Box component={'img'} sx={{ maxWidth: '100%' }} src={getURL(ProcuctImage)} alt='' />
               </Box>
-              <Typography variant='body1' component={'p'} fontFamily={'Plain'}>
+              <Typography
+                variant='body1'
+                fontSize={20}
+                letterSpacing={'-.5px'}
+                lineHeight={1.3}
+                fontFamily={'Plain'}
+                sx={{ ...addStyleIfTrue(isPopup, { fontSize: 16 }) }}
+              >
                 WEEM Biotin Gummies for Hair, Skin and Nails - Vegan Vitamins for Men & Women, Supports Faster Hair
                 Growth and Stronger Nails - Extra Strength 10,000mcg
               </Typography>
@@ -177,21 +184,21 @@ const RowBottom = ({ open }: Props) => {
             <Box>
               <Grid container spacing={4}>
                 <Grid item md={4} xs={12}>
-                  <Card variant='outlined' sx={{ minHeight: '100%' }}>
+                  <Card variant='outlined' sx={{ height: '100%' }}>
                     <CardContent {...cardContentProps}>
                       <PieChart />
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item md={4} xs={12}>
-                  <Card variant='outlined' sx={{ minHeight: '100%' }}>
+                  <Card variant='outlined' sx={{ height: '100%' }}>
                     <CardContent {...cardContentProps}>
                       <Items />
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item md={4} xs={12}>
-                  <Card variant='outlined' sx={{ minHeight: '100%' }}>
+                  <Card variant='outlined' sx={{ height: '100%' }}>
                     <CardContent {...cardContentProps}>
                       <RadarChart />
                     </CardContent>

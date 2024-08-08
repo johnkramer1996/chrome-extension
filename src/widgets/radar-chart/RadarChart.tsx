@@ -1,48 +1,16 @@
-import { Box, IconButton, Tooltip } from '@mui/material'
+import { Box, Tooltip } from '@mui/material'
 import { selectIsPopup } from 'entities/settings'
-import { Radar, RadarChart, PolarGrid, ResponsiveContainer, Pie, PieChart, Cell } from 'recharts'
+import { Radar, RadarChart, PolarGrid, ResponsiveContainer } from 'recharts'
 import { addStyleIfTrue } from 'shared/lib'
 import { useAppSelector } from 'shared/model'
 import { Parameters } from 'widgets'
-
-const data = [
-  {
-    subject: 'discount',
-    A: 150,
-    B: 110,
-    fullMark: 150,
-  },
-  {
-    subject: 'coupon',
-    A: 50,
-    B: 130,
-    fullMark: 150,
-  },
-  {
-    subject: 'subscribe and save',
-    A: 86,
-    B: 130,
-    fullMark: 150,
-  },
-  {
-    subject: 'Content score',
-    A: 99,
-    B: 50,
-    fullMark: 150,
-  },
-  {
-    subject: 'Aspect score',
-    A: 85,
-    B: 90,
-    fullMark: 150,
-  },
-]
+import { data } from './data'
 
 export const CustomedRadarChart = () => {
   const isPopup = useAppSelector(selectIsPopup)
 
   return (
-    <Box height={255} position={'relative'}>
+    <Box height={250} position={'relative'}>
       <Box>
         <Tooltip
           title={

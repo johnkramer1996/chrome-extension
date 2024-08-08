@@ -19,7 +19,7 @@ export const DraggableLayout = ({ children }: { children: ReactNode }) => {
     ...(isFull
       ? { sx: { ...defaultBoxProps.sx, transform: 'none!important' } }
       : {
-          sx: { ...defaultBoxProps.sx, containerType: 'inline-size' },
+          sx: { ...defaultBoxProps.sx },
         }),
   }
 

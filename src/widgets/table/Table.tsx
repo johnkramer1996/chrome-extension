@@ -3,16 +3,7 @@ import { Row } from './Row'
 import { useAppSelector } from 'shared/model'
 import { selectIsPopup } from 'entities/settings'
 import { addStyleIfTrue } from 'shared/lib'
-
-const tr = [
-  'Brand',
-  'Price',
-  'Monthly revenue on amz',
-  'units<br /> sold',
-  'Rating',
-  'Optimiz. opprtunities',
-  'units sold on tt',
-]
+import { tableTitles } from './table-titles'
 
 export const TableProducts = () => {
   const isPopup = useAppSelector(selectIsPopup)
@@ -31,7 +22,7 @@ export const TableProducts = () => {
             <TableCell sx={{ width: 280, ...addStyleIfTrue(isPopup, { width: 150, fontSize: 10 }) }}>
               Product Name
             </TableCell>
-            {tr.map((el, i) => {
+            {tableTitles.map((el, i) => {
               return (
                 <TableCell
                   key={i}

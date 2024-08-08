@@ -6,7 +6,7 @@ type SettingsSliceState = {
 }
 
 const initialState = {
-  mode: 'popup',
+  mode: 'full',
   status: 'open',
 } as const
 
