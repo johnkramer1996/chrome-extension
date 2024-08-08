@@ -1,8 +1,8 @@
-import { Navigate, createBrowserRouter, createMemoryRouter } from 'react-router-dom'
+import { Navigate, createBrowserRouter } from 'react-router-dom'
 import { PATH_PAGE } from 'shared/lib'
 import { BaseLayout } from './layouts/base.layout'
-import { GuestGuard } from './guards/GuestGuard'
-import { AuthGuard } from './guards/AuthGuard'
+import { GuestGuard } from './guards/guest.guard'
+import { AuthGuard } from './guards/auth.guard'
 import { AuthLayout } from './layouts/auth.layout'
 import { ErrorPage, LoginPage, MainPage, NotFoundPage, PasswordResetPage } from 'pages'
 

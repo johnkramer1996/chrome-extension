@@ -13,6 +13,12 @@ export const Parameters = () => {
       mt={1}
       pl={9}
       pr={4}
+      sx={{
+        '@container (max-width: 900px)': {
+          pl: 0,
+          pr: 0,
+        },
+      }}
     >
       <Box>
         <Box color={'#B5B5B5'} fontSize={14}>
@@ -26,7 +32,16 @@ export const Parameters = () => {
         <Box color={'#B5B5B5'} fontSize={14}>
           Parameter 2
         </Box>
-        <Box color={'#8AFF6C'} fontSize={24} fontWeight={500}>
+        <Box
+          color={'#8AFF6C'}
+          fontSize={24}
+          fontWeight={500}
+          sx={{
+            '@container (max-width: 900px)': {
+              fontSize: 20,
+            },
+          }}
+        >
           $1.350,39
         </Box>
       </Box>

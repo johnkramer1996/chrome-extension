@@ -7,6 +7,7 @@ import {
   IconButton,
   Stack,
   TableCell,
+  TableCellProps,
   TableRow,
   Tooltip,
   Typography,
@@ -23,6 +24,7 @@ import { IoMdStar } from 'react-icons/io'
 import { PiCopySimple } from 'react-icons/pi'
 import { IoArrowUp } from 'react-icons/io5'
 import { CgArrowTopRight } from 'react-icons/cg'
+import { getURL } from 'shared/lib'
 
 export const Row = () => {
   const [open, setOpen] = useState(false)
@@ -38,15 +40,66 @@ export const Row = () => {
 type Props = { open: boolean; setOpen: (open: boolean) => void }
 
 const RowTop = ({ open, setOpen }: Props) => {
+  const tableCellProps: TableCellProps = {
+    sx: {
+      '@container (max-width: 900px)': {
+        fontSize: 12,
+        paddingTop: '13px',
+        paddingBottom: '13px',
+      },
+    },
+  }
+
   return (
     <TableRow>
-      <TableCell>
-        <Stack direction={'row'} spacing={2} alignItems={'center'}>
-          <Box width={54} height={54} borderRadius={1} p={1} bgcolor={'#fff'} flexShrink={0} overflow={'hidden'}>
-            <Box component={'img'} sx={{ maxWidth: '100%' }} src={ProcuctImage} alt='' />
+      <TableCell {...tableCellProps}>
+        <Stack
+          direction={'row'}
+          spacing={2}
+          alignItems={'center'}
+          sx={{
+            '@container (max-width: 900px)': {
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+            },
+          }}
+        >
+          <Box
+            width={54}
+            height={54}
+            borderRadius={1}
+            p={1}
+            bgcolor={'#fff'}
+            flexShrink={0}
+            overflow={'hidden'}
+            sx={{
+              '@container (max-width: 900px)': {
+                width: 32,
+                height: 32,
+              },
+            }}
+          >
+            <Box component={'img'} sx={{ maxWidth: '100%' }} src={getURL(ProcuctImage)} alt='' />
           </Box>
-          <Box>
-            <Box whiteSpace={'nowrap'} textOverflow={'ellipsis'} overflow={'hidden'} width={190} fontSize={14}>
+          <Box
+            sx={{
+              '@container (max-width: 900px)': {
+                margin: '10px 0 0!important',
+              },
+            }}
+          >
+            <Box
+              whiteSpace={'nowrap'}
+              textOverflow={'ellipsis'}
+              overflow={'hidden'}
+              width={190}
+              sx={{
+                '@container (max-width: 900px)': {
+                  width: 120,
+                  fontSize: 12,
+                },
+              }}
+            >
               WEEM Biotin Gummies for Hair, Skin and Nails - Vegan Vitamins for Men & Women, Supports Faster Hair Growth
               and Stronger Nails - Extra Strength 10,000mcg
             </Box>
@@ -55,7 +108,7 @@ const RowTop = ({ open, setOpen }: Props) => {
                 <img src={FlagsUSA} alt='' />
               </Box>
               <Stack direction={'row'} alignItems={'center'} spacing={2} sx={{ cursor: 'pointer' }}>
-                <Box fontSize={12} fontWeight={700}>
+                <Box fontSize={12} fontWeight={700} lineHeight={1}>
                   B08FGZSW8L
                 </Box>
                 <Box component={PiCopySimple}></Box>
@@ -64,42 +117,53 @@ const RowTop = ({ open, setOpen }: Props) => {
           </Box>
         </Stack>
       </TableCell>
-      <TableCell>
-        <Box fontFamily={'Plain'}>WEEM</Box>
+      <TableCell {...tableCellProps}>
+        <Box fontFamily={'Plain'} fontWeight={300}>
+          WEEM
+        </Box>
       </TableCell>
-      <TableCell>
-        <Box fontWeight={700} fontSize={14}>
+      <TableCell {...tableCellProps}>
+        <Box fontWeight={700} position={'relative'} top={2}>
           $29.78
         </Box>
       </TableCell>
-      <TableCell>
+      <TableCell {...tableCellProps}>
         <Box fontFamily={'Plain'}>$5,000</Box>
       </TableCell>
-      <TableCell>
+      <TableCell {...tableCellProps}>
         <Box fontFamily={'Plain'}>888</Box>
       </TableCell>
-      <TableCell>
+      <TableCell {...tableCellProps}>
         <Stack direction={'row'} spacing={1} alignItems={'center'}>
-          <IoMdStar color='yellow' fontSize={16} style={{ marginTop: -3 }} />
+          <IoMdStar color='yellow' fontSize={18} style={{ marginTop: -3 }} />
           <Box fontWeight={700} fontSize={14}>
             4.3
           </Box>
         </Stack>
       </TableCell>
-      <TableCell>
+      <TableCell {...tableCellProps}>
         <Stack direction={'row'} spacing={1} color={'#8AFF6C'}>
-          <Box fontWeight={700} fontSize={14} sx={{ textDecoration: 'underline' }}>
+          <Box fontWeight={700} sx={{ textDecoration: 'underline' }} fontSize={14}>
             $483.19
           </Box>
-          <Box component={CgArrowTopRight} fontSize={20} />
+          <Box
+            component={CgArrowTopRight}
+            fontSize={20}
+            sx={{
+              '@container (max-width: 900px)': {
+                position: 'relative',
+                top: -2,
+              },
+            }}
+          />
         </Stack>
       </TableCell>
-      <TableCell>
+      <TableCell {...tableCellProps}>
         <Box fontSize={12} fontFamily={'Plain'}>
           $357.19
         </Box>
       </TableCell>
-      <TableCell>
+      <TableCell {...tableCellProps}>
         <IconButton aria-label='expand row' size='small' onClick={() => setOpen(!open)}>
           {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
         </IconButton>
@@ -173,7 +237,7 @@ const RowBottom = ({ open }: Props) => {
 
 const Item = ({ label }: { label: string }) => {
   return (
-    <Stack border={'1px solid'} borderColor={'#2E2E2E'} py={1.5} px={2} borderRadius={2} fontSize={14}>
+    <Stack border={'1px solid'} borderColor={'#2E2E2E'} py={1.5} px={2} borderRadius={2}>
       <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
         <Box fontSize={16} letterSpacing={'-.1px'}>
           {label}
@@ -218,7 +282,7 @@ const Item = ({ label }: { label: string }) => {
               (Medium demand)
             </Box>
           </Stack>
-          <Box fontSize={14} fontWeight={300}>
+          <Box fontWeight={300}>
             Many reviewers have noticed a change in the formula of the vitamins, which has affected their taste, smell,
             and quality. Some people have reported receiving bottles with different colors or consistencies than
           </Box>

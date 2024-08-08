@@ -1,6 +1,6 @@
 import { BsQuestionCircle } from 'react-icons/bs'
 import { IoSettingsOutline } from 'react-icons/io5'
-import { IconButton, Popover, Stack } from '@mui/material'
+import { Box, BoxProps, IconButton, IconButtonProps, Popover, Stack } from '@mui/material'
 import { useState } from 'react'
 import OpenInFullIcon from '@mui/icons-material/OpenInFull'
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen'
@@ -16,7 +16,21 @@ export const Icons = () => {
   const handleClick = (event: React.MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget)
   const handleClose = () => setAnchorEl(null)
 
-  const iconSize = isFull ? 32 : 24
+  const iconButtonProps: IconButtonProps = {
+    sx: {
+      '@container (max-width: 900px)': {
+        padding: 1.5,
+      },
+    },
+  }
+  const iconProps: BoxProps = {
+    sx: {
+      fontSize: 32,
+      '@container (max-width: 900px)': {
+        fontSize: 22,
+      },
+    },
+  }
 
   return (
     <Stack direction={'row'}>
@@ -31,37 +45,23 @@ export const Icons = () => {
         hard skull, but lacking limbs with digits. Fish can be grouped into the more basal jawless fish and the more
         common jawed fish, the latter including all living cartilaginous and bony fish
       </Popover>
-      <IconButton
-        onClick={handleClick}
-        sx={{
-          '@container (max-width: 900px)': {
-            padding: '0',
-          },
-        }}
-      >
-        <BsQuestionCircle size={iconSize} />
+      <IconButton onClick={handleClick} {...iconButtonProps}>
+        <Box component={BsQuestionCircle} {...iconProps} />
       </IconButton>
       {isAuth && (
-        <IconButton>
-          <IoSettingsOutline size={iconSize} />
+        <IconButton {...iconButtonProps}>
+          <Box component={IoSettingsOutline} {...iconProps} />
         </IconButton>
       )}
-      <IconButton onClick={() => dispatch(toggleMode())}>
+      <IconButton {...iconButtonProps} onClick={() => dispatch(toggleMode())}>
         {isFull ? (
-          <CloseFullscreenIcon
-            sx={{
-              fontSize: iconSize,
-              '@container (max-width: 900px)': {
-                fontSize: 24,
-              },
-            }}
-          />
+          <Box component={CloseFullscreenIcon} {...iconProps} />
         ) : (
-          <OpenInFullIcon sx={{ fontSize: iconSize }} />
+          <Box component={OpenInFullIcon} {...iconProps} />
         )}
       </IconButton>
-      <IconButton>
-        <IoCloseSharp size={iconSize} />
+      <IconButton {...iconButtonProps}>
+        <Box component={IoCloseSharp} {...iconProps} />
       </IconButton>
     </Stack>
   )

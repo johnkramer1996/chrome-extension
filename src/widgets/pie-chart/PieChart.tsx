@@ -1,26 +1,32 @@
 import { Box, Stack } from '@mui/material'
+import { selectIsFull } from 'entities/settings'
 import { Pie, PieChart, Cell } from 'recharts'
+import { useAppSelector } from 'shared/model'
 import { Parameters } from 'widgets'
 
 export const CustomedPieChart = () => {
+  const isFull = useAppSelector(selectIsFull)
+
+  const div = isFull ? 1 : 2
+
   return (
     <Box height={255} position={'relative'} pt={2}>
-      <PieChart width={280} height={140} style={{ margin: '0 auto' }}>
+      <PieChart width={280 / div} height={140 / div} style={{ margin: '0 auto' }}>
         <Pie
           data={[
             { name: 'Group A', value: 200 },
             { name: 'Group B', value: 400 },
           ]}
-          cx={135}
-          cy={135}
+          cx={135 / div}
+          cy={135 / div}
           startAngle={180}
           endAngle={0}
-          innerRadius={118}
-          outerRadius={135}
+          innerRadius={118 / div}
+          outerRadius={135 / div}
           paddingAngle={5}
           dataKey='value'
         >
-          <Cell fill={'#FE5858'} stroke='none' stroke-linecap='round' />
+          <Cell fill={'#FE5858'} stroke='none' />
           <Cell fill={'#8AFF6C'} stroke='none' />
         </Pie>
       </PieChart>

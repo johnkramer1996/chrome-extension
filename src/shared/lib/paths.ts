@@ -12,3 +12,5 @@ export const PATH_PAGE = {
   404: '/404',
   error: '/error',
 }
+
+export const getURL = (url: string) => (chrome && chrome.runtime ? chrome.runtime.getURL(url) : url)

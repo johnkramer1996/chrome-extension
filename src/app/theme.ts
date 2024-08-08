@@ -30,7 +30,7 @@ export const theme = createTheme({
   palette: {
     mode: 'dark',
     background: {
-      default: '#05050F',
+      default: '#fff',
     },
     text: {
       primary: '#fff',
@@ -168,10 +168,7 @@ export const theme = createTheme({
           },
         },
         input: {
-          padding: '0',
-          '&::placeholder': {
-            color: '#fff!important',
-          },
+          padding: '10',
         },
       },
     },
@@ -204,11 +201,16 @@ export const theme = createTheme({
     //     },
     //   },
     // },
+    MuiTable: {
+      styleOverrides: {
+        root: {},
+      },
+    },
     MuiTableCell: {
       styleOverrides: {
         root: {
-          padding: '10px 8px',
           borderBottom: 'none',
+          // padding: 0,
         },
         head: {
           fontFamily: 'Plain',
@@ -219,6 +221,10 @@ export const theme = createTheme({
           fontSize: 13,
           lineHeight: 1.3,
           padding: '4px 8px',
+        },
+        body: {
+          padding: '10px 8px',
+          fontSize: 14,
         },
       },
     },

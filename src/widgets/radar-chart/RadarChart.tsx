@@ -41,10 +41,16 @@ export const CustomedRadarChart = () => {
       <Box>
         <Tooltip
           title={
-            <>
+            <Box
+              sx={{
+                '@container (max-width: 900px)': {
+                  fontSize: 11,
+                },
+              }}
+            >
               Summary metric describing optimal coverage Dynamic pricing discount, coupon, subscribe and save), Content
               score and Aspect score, and increased Contribution Profit
-            </>
+            </Box>
           }
           placement='top'
           arrow

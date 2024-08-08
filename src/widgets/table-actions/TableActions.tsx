@@ -1,9 +1,27 @@
-import { Box, Button, IconButton, Input, InputAdornment, Stack, TextField } from '@mui/material'
+import { Box, Button, ButtonProps, InputAdornment, Stack, TextField } from '@mui/material'
 import { GrFilter } from 'react-icons/gr'
 import { RiDownloadLine } from 'react-icons/ri'
 import { IoSearchSharp } from 'react-icons/io5'
 
 export const TableActions = () => {
+  const buttonProps: ButtonProps = {
+    sx: {
+      height: { lg: 44, xs: 40 },
+      boxShadow: '0px 0px 15px rgba(82, 149, 224, 0.5)',
+      backgroundColor: 'rgba(15,15,19, .6)',
+      fontSize: 14,
+      textTransform: 'none',
+      fontWeight: 400,
+      '&:hover': {
+        boxShadow: '0px 0px 5px rgba(82, 149, 224, 0.5)',
+      },
+      '@container (max-width: 900px)': {
+        height: 40,
+        fontSize: 14,
+      },
+    },
+  }
+
   return (
     <Stack direction={'row'} justifyContent={'space-between'} spacing={4}>
       <Stack direction={'row'} spacing={4}>
@@ -20,7 +38,17 @@ export const TableActions = () => {
               },
             }}
             InputProps={{
-              sx: { height: 44, border: 'none' },
+              sx: {
+                height: { lg: 44, xs: 40 },
+                border: 'none',
+                '& input::placeholder': {
+                  color: '#fff',
+                  opacity: '1',
+                },
+                '@container (max-width: 900px)': {
+                  height: 40,
+                },
+              },
               startAdornment: (
                 <InputAdornment position='start'>
                   <IoSearchSharp size={18} />
@@ -31,26 +59,42 @@ export const TableActions = () => {
         </Box>
         <Button
           color='dark'
-          sx={{
-            height: { lg: 44, xs: 40 },
-            boxShadow: '0px 0px 15px rgba(82, 149, 224, 0.5)',
-            backgroundColor: 'rgba(15,15,19, .6)',
-            fontSize: 14,
-          }}
-          startIcon={<GrFilter />}
+          {...buttonProps}
+          startIcon={
+            <Box
+              component={GrFilter}
+              sx={{
+                '&': {
+                  '@container (max-width: 900px)': {
+                    fontSize: '16px!important',
+                  },
+                },
+              }}
+            />
+          }
         >
           Filters
         </Button>
       </Stack>
       <Button
         color='dark'
+        {...buttonProps}
         sx={{
-          height: 44,
-          boxShadow: '0px 0px 15px rgba(82, 149, 224, 0.5)',
-          backgroundColor: 'rgba(15,15,19, .6)',
+          ...buttonProps.sx,
           fontSize: 16,
         }}
-        startIcon={<RiDownloadLine />}
+        startIcon={
+          <Box
+            component={RiDownloadLine}
+            sx={{
+              '&': {
+                '@container (max-width: 900px)': {
+                  fontSize: '20px!important',
+                },
+              },
+            }}
+          />
+        }
       >
         Download CSV
       </Button>

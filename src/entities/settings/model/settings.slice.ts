@@ -5,7 +5,7 @@ type SettingsSliceState = {
 }
 
 const initialState = {
-  mode: 'full',
+  mode: 'popup',
 } as const
 
 export const settingsSlice = createSlice({
