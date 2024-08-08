@@ -12,13 +12,8 @@ export const TableActions = () => {
       fontSize: 14,
       textTransform: 'none',
       fontWeight: 400,
-      '&:hover': {
-        boxShadow: '0px 0px 5px rgba(82, 149, 224, 0.5)',
-      },
-      '@container (max-width: 900px)': {
-        height: 40,
-        fontSize: 14,
-      },
+      '&:hover': { boxShadow: '0px 0px 5px rgba(82, 149, 224, 0.5)' },
+      '@container (max-width: 900px)': { height: 40, fontSize: 14 },
     },
   }
 
@@ -41,13 +36,8 @@ export const TableActions = () => {
               sx: {
                 height: { lg: 44, xs: 40 },
                 border: 'none',
-                '& input::placeholder': {
-                  color: '#fff',
-                  opacity: '1',
-                },
-                '@container (max-width: 900px)': {
-                  height: 40,
-                },
+                '& input::placeholder': { color: '#fff', opacity: '1' },
+                '@container (max-width: 900px)': { height: 40 },
               },
               startAdornment: (
                 <InputAdornment position='start'>
@@ -61,16 +51,7 @@ export const TableActions = () => {
           color='dark'
           {...buttonProps}
           startIcon={
-            <Box
-              component={GrFilter}
-              sx={{
-                '&': {
-                  '@container (max-width: 900px)': {
-                    fontSize: '16px!important',
-                  },
-                },
-              }}
-            />
+            <Box component={GrFilter} sx={{ '@container (max-width: 900px)': { fontSize: '16px!important' } }} />
           }
         >
           Filters
@@ -84,16 +65,7 @@ export const TableActions = () => {
           fontSize: 16,
         }}
         startIcon={
-          <Box
-            component={RiDownloadLine}
-            sx={{
-              '&': {
-                '@container (max-width: 900px)': {
-                  fontSize: '20px!important',
-                },
-              },
-            }}
-          />
+          <Box component={RiDownloadLine} sx={{ '@container (max-width: 900px)': { fontSize: '20px!important' } }} />
         }
       >
         Download CSV

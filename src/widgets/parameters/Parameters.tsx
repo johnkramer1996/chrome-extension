@@ -14,10 +14,7 @@ export const Parameters = () => {
       pl={9}
       pr={4}
       sx={{
-        '@container (max-width: 900px)': {
-          pl: 0,
-          pr: 0,
-        },
+        '@container (max-width: 900px)': { pl: 0, pr: 0 },
       }}
     >
       <Box>
@@ -25,9 +22,7 @@ export const Parameters = () => {
           color={'#B5B5B5'}
           fontSize={14}
           sx={{
-            '@container (max-width: 900px)': {
-              fontSize: 12,
-            },
+            '@container (max-width: 900px)': { fontSize: 12 },
           }}
         >
           Parameter 1
@@ -36,36 +31,20 @@ export const Parameters = () => {
           color={'#FE5858'}
           fontSize={24}
           fontWeight={500}
-          sx={{
-            '@container (max-width: 900px)': {
-              fontSize: 20,
-            },
-          }}
+          sx={{ '@container (max-width: 900px)': { fontSize: 20 } }}
         >
           $350,39
         </Box>
       </Box>
       <Box>
-        <Box
-          color={'#B5B5B5'}
-          fontSize={14}
-          sx={{
-            '@container (max-width: 900px)': {
-              fontSize: 12,
-            },
-          }}
-        >
+        <Box color={'#B5B5B5'} fontSize={14} sx={{ '@container (max-width: 900px)': { fontSize: 12 } }}>
           Parameter 2
         </Box>
         <Box
           color={'#8AFF6C'}
           fontSize={24}
           fontWeight={500}
-          sx={{
-            '@container (max-width: 900px)': {
-              fontSize: 20,
-            },
-          }}
+          sx={{ '@container (max-width: 900px)': { fontSize: 20 } }}
         >
           $1.350,39
         </Box>

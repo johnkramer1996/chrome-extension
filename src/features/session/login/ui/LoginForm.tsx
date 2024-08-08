@@ -36,16 +36,7 @@ export const LoginForm = () => {
     <>
       <form onSubmit={methods.handleSubmit(onSubmitHandler)}>
         <FormProvider {...methods}>
-          <Stack
-            spacing={6}
-            sx={{
-              '@container (max-width: 900px)': {
-                '& >:not(style)~:not(style)': {
-                  mt: 4,
-                },
-              },
-            }}
-          >
+          <Stack spacing={6} sx={{ '@container (max-width: 900px)': { '& >:not(style)~:not(style)': { mt: 4 } } }}>
             <ControlledInput<LoginFormSchema> name='email' type={'text'} label='E-mail' fullWidth />
             <ControlledInput<LoginFormSchema>
               name='password'
@@ -79,32 +70,15 @@ export const LoginForm = () => {
           </Stack>
         </FormProvider>
       </form>
-      <Stack
-        spacing={22.5}
-        mt={22.5}
-        maxWidth={300}
-        mx={'auto'}
-        sx={{
-          '@container (max-width: 900px)': {
-            mt: 8,
-          },
-        }}
-      >
+      <Stack spacing={22.5} mt={22.5} maxWidth={300} mx={'auto'} sx={{ '@container (max-width: 900px)': { mt: 8 } }}>
         <Button
           color='green'
           sx={{
             bgcolor: 'rgba(128, 198, 122, .2)',
             color: 'green.main',
-            '&:hover': {
-              bgcolor: 'rgba(128, 198, 122, .4)',
-              color: 'green.main',
-            },
-            '&:active': {
-              boxShadow: '0px 0px 20px rgba(128, 198, 122, 0.4)',
-            },
-            '@container (max-width: 900px)': {
-              height: 40,
-            },
+            '&:hover': { bgcolor: 'rgba(128, 198, 122, .4)', color: 'green.main' },
+            '&:active': { boxShadow: '0px 0px 20px rgba(128, 198, 122, 0.4)' },
+            '@container (max-width: 900px)': { height: 40 },
           }}
           size='large'
           fullWidth
@@ -117,13 +91,9 @@ export const LoginForm = () => {
           textAlign={'center'}
           sx={{
             '@container (max-width: 900px)': {
-              '& >:not(style)~:not(style)': {
-                mt: 2,
-              },
+              '& >:not(style)~:not(style)': { mt: 2 },
               mt: '32px!important',
-              '& br': {
-                display: 'none',
-              },
+              '& br': { display: 'none' },
             },
           }}
         >

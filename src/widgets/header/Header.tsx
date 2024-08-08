@@ -12,9 +12,7 @@ export const Header = () => {
             justifyContent: 'space-between',
             py: 6,
             minHeight: '1px!important',
-            '@container (max-width: 900px)': {
-              py: 2,
-            },
+            '@container (max-width: 900px)': { py: 2 },
           }}
         >
           <Logo />

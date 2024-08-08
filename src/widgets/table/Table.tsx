@@ -19,18 +19,14 @@ export const TableProducts = () => {
       py={4}
       px={6}
       sx={{
-        '@container (max-width: 900px)': {
-          px: 1,
-        },
+        '@container (max-width: 900px)': { px: 1 },
       }}
     >
       <Table
         sx={{
           tableLayout: 'fixed',
           fontWeight: 300,
-          '@container (max-width: 900px)': {
-            tableLayout: 'auto',
-          },
+          '@container (max-width: 900px)': { tableLayout: 'auto' },
         }}
       >
         <TableHead>
@@ -38,10 +34,7 @@ export const TableProducts = () => {
             <TableCell
               sx={{
                 width: 280,
-                '@container (max-width: 900px)': {
-                  width: 150,
-                  fontSize: 10,
-                },
+                '@container (max-width: 900px)': { width: 150, fontSize: 10 },
               }}
             >
               Product Name
@@ -51,11 +44,7 @@ export const TableProducts = () => {
                 <TableCell
                   key={i}
                   sx={{
-                    '@container (max-width: 900px)': {
-                      fontSize: 10,
-                      padding: '2px 1px',
-                      maxWidth: 75,
-                    },
+                    '@container (max-width: 900px)': { fontSize: 10, padding: '2px 1px', maxWidth: 75 },
                   }}
                 >
                   <Box dangerouslySetInnerHTML={{ __html: el }}></Box>

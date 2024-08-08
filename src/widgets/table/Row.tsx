@@ -10,7 +10,6 @@ import {
   TableCell,
   TableCellProps,
   TableRow,
-  Tooltip,
   Typography,
 } from '@mui/material'
 import FlagsUSA from 'assets/icons/flags-USA.svg'
@@ -18,14 +17,12 @@ import ProcuctImage from 'assets/products/product-1.jpg'
 import { useState } from 'react'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
-import OpenInFullIcon from '@mui/icons-material/OpenInFull'
-import { AiOutlineInfo } from 'react-icons/ai'
 import { RadarChart, PieChart } from 'widgets'
 import { IoMdStar } from 'react-icons/io'
 import { PiCopySimple } from 'react-icons/pi'
-import { IoArrowUp } from 'react-icons/io5'
 import { CgArrowTopRight } from 'react-icons/cg'
 import { getURL } from 'shared/lib'
+import { Items } from './Items'
 
 export const Row = () => {
   const [open, setOpen] = useState(false)
@@ -58,12 +55,7 @@ const RowTop = ({ open, setOpen }: Props) => {
           direction={'row'}
           spacing={2}
           alignItems={'center'}
-          sx={{
-            '@container (max-width: 900px)': {
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-            },
-          }}
+          sx={{ '@container (max-width: 900px)': { flexDirection: 'column', alignItems: 'flex-start' } }}
         >
           <Box
             width={54}
@@ -74,21 +66,12 @@ const RowTop = ({ open, setOpen }: Props) => {
             flexShrink={0}
             overflow={'hidden'}
             sx={{
-              '@container (max-width: 900px)': {
-                width: 32,
-                height: 32,
-              },
+              '@container (max-width: 900px)': { width: 32, height: 32 },
             }}
           >
             <Box component={'img'} sx={{ maxWidth: '100%' }} src={getURL(ProcuctImage)} alt='' />
           </Box>
-          <Box
-            sx={{
-              '@container (max-width: 900px)': {
-                margin: '10px 0 0!important',
-              },
-            }}
-          >
+          <Box sx={{ '@container (max-width: 900px)': { margin: '10px 0 0!important' } }}>
             <Box
               whiteSpace={'nowrap'}
               textOverflow={'ellipsis'}
@@ -150,12 +133,7 @@ const RowTop = ({ open, setOpen }: Props) => {
           <Box
             component={CgArrowTopRight}
             fontSize={20}
-            sx={{
-              '@container (max-width: 900px)': {
-                position: 'relative',
-                top: -2,
-              },
-            }}
+            sx={{ '@container (max-width: 900px)': { position: 'relative', top: -2 } }}
           />
         </Stack>
       </TableCell>
@@ -175,12 +153,7 @@ const RowTop = ({ open, setOpen }: Props) => {
 
 const RowBottom = ({ open }: Props) => {
   const cardContentProps: CardContentProps = {
-    sx: {
-      minHeight: '100%',
-      '@container (max-width: 900px)': {
-        py: 3,
-      },
-    },
+    sx: { minHeight: '100%', '@container (max-width: 900px)': { py: 3 } },
   }
   return (
     <TableRow>
@@ -198,14 +171,7 @@ const RowBottom = ({ open }: Props) => {
                 flexShrink={0}
                 overflow={'hidden'}
                 p={2}
-                sx={{
-                  '@container (max-width: 900px)': {
-                    width: 80,
-                    height: 80,
-                    borderRadius: 4,
-                    p: 0.5,
-                  },
-                }}
+                sx={{ '@container (max-width: 900px)': { width: 80, height: 80, borderRadius: 4, p: 0.5 } }}
               >
                 <Box component={'img'} sx={{ maxWidth: '100%' }} src={getURL(ProcuctImage)} alt='' />
               </Box>
@@ -243,131 +209,5 @@ const RowBottom = ({ open }: Props) => {
         </Collapse>
       </TableCell>
     </TableRow>
-  )
-}
-
-const Items = () => {
-  const [activeIndex, setActiveIndex] = useState<null | number>(null)
-
-  const onClick = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index)
-  }
-
-  return (
-    <Stack spacing={2} position={'relative'} minHeight={290}>
-      <Item isActive={activeIndex === 0} onClick={onClick} index={0} label='Formula changes' />
-      <Item isActive={activeIndex === 1} onClick={onClick} index={1} label='Taste complaints' />
-      <Item isActive={activeIndex === 2} onClick={onClick} index={2} label='Decreased satisfaction' />
-      <Item isActive={activeIndex === 3} onClick={onClick} index={3} label='Consistency issues' />
-      <Item isActive={activeIndex === 4} onClick={onClick} index={4} label='Disappointing smell' />
-    </Stack>
-  )
-}
-
-const Item = ({
-  isActive,
-  onClick,
-  index,
-  label,
-}: {
-  isActive: boolean
-  onClick: (index: number) => void
-  label: string
-  index: number
-}) => {
-  return (
-    <Stack
-      position={'absolute'}
-      top={isActive ? 0 : index * 50}
-      mt={isActive ? '0!important' : 0}
-      left={3}
-      right={3}
-      zIndex={isActive ? 3 : 2}
-      border={'1px solid'}
-      borderColor={'#2E2E2E'}
-      bgcolor={'#121212'}
-      py={1.5}
-      px={2}
-      borderRadius={2}
-      sx={{
-        '@container (max-width: 900px)': {},
-      }}
-    >
-      <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
-        <Box
-          fontSize={16}
-          letterSpacing={'-.1px'}
-          sx={{
-            '@container (max-width: 900px)': {
-              fontSize: 14,
-            },
-          }}
-        >
-          {label}
-        </Box>
-        <IconButton size='small' onClick={() => onClick(index)}>
-          <OpenInFullIcon
-            fontSize='small'
-            sx={{
-              '@container (max-width: 900px)': {
-                fontSize: 18,
-              },
-            }}
-          />
-        </IconButton>
-      </Stack>
-      <Stack spacing={4} display={isActive ? 'block' : 'none'}>
-        <Stack spacing={2}>
-          <Stack direction={'row'} spacing={2} alignItems={'center'}>
-            <Box fontFamily={'Plain'}>Oportunuties</Box>
-            <Tooltip
-              title={
-                <>
-                  A fish (pl.: fish or fishes) is an aquatic, anamniotic, gill-bearing vertebrate animal with swimming
-                  fins and a hard skull, but lacking limbs with digits. Fish can be grouped into the more basal jawless
-                  fish and the more common jawed fish, the latter including all living cartilaginous and bony fish
-                </>
-              }
-              placement='top'
-              arrow
-            >
-              <Box
-                component={'div'}
-                width={14}
-                height={14}
-                lineHeight={'14px'}
-                bgcolor={'#2E2E2E'}
-                textAlign={'center'}
-                borderRadius={'50%'}
-                sx={{ cursor: 'pointer' }}
-              >
-                <Box component={AiOutlineInfo} width={12} height={12} />
-              </Box>
-            </Tooltip>
-          </Stack>
-          <Stack direction={'row'} spacing={2} alignItems={'center'}>
-            <Box color={'#D9D9D9'}>Opportunity Score</Box>
-            <Box color={'#80C67A'}>2</Box>
-            <Box color={'#A6A7A8'} fontSize={12}>
-              (Medium demand)
-            </Box>
-          </Stack>
-          <Box fontWeight={300}>
-            Many reviewers have noticed a change in the formula of the vitamins, which has affected their taste, smell,
-            and quality. Some people have reported receiving bottles with different colors or consistencies than
-          </Box>
-        </Stack>
-        <Box>
-          <Box fontFamily={'Plain'}>Expected Sales Growth</Box>
-          <Stack direction={'row'} spacing={2} color={'#80C67A'}>
-            <Box>$350,89</Box>
-            <Box fontSize={12}>
-              +15%
-              <IoArrowUp size={14} />
-            </Box>
-          </Stack>
-        </Box>
-      </Stack>
-    </Stack>
   )
 }

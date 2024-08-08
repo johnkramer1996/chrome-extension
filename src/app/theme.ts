@@ -181,27 +181,6 @@ export const theme = createTheme({
         },
       },
     },
-    // TODO: REMOVE
-    // MuiInput: {
-    //   styleOverrides: {
-    //     root: {
-    //       boxShadow: '0px 0px 15px rgba(82, 149, 224, 0.5)',
-    //       borderRadius: '1000px',
-    //       backgroundColor: COLORS.dark,
-    //       fontSize: 14,
-    //       '&::before': {
-    //         display: 'none',
-    //       },
-    //       '&::after': {
-    //         display: 'none',
-    //       },
-    //     },
-    //     input: {
-    //       height: 44,
-    //       padding: 0,
-    //     },
-    //   },
-    // },
     MuiTable: {
       styleOverrides: {
         root: {},

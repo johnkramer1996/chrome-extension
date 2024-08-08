@@ -12,17 +12,7 @@ export const Auth = ({ children, hasBackButton }: { children: ReactNode; hasBack
     <Box pt={2} pb={10}>
       <Container>
         <Grid container justifyContent={'space-between'} alignItems={'center'}>
-          <Grid
-            item
-            xl={6}
-            lg={9}
-            xs={12}
-            sx={{
-              '@container (max-width: 900px)': {
-                display: 'none',
-              },
-            }}
-          >
+          <Grid item xl={6} lg={9} xs={12} sx={{ '@container (max-width: 900px)': { display: 'none' } }}>
             <Box minHeight={60}>
               {hasBackButton && (
                 <Button

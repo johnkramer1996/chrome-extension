@@ -26,14 +26,13 @@ export const DraggableLayout = ({ children }: { children: ReactNode }) => {
   return (
     <Box
       sx={{
-        '&': {},
         '& .container': {
           position: 'fixed',
           top: 0,
           left: 0,
           right: 0,
           bottom: 0,
-          zIndex: 198,
+          zIndex: 198, // 197 - header amazon
           display: 'flex',
           placeContent: 'center',
           placeItems: 'center',

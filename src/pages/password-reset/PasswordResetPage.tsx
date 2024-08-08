@@ -13,24 +13,13 @@ export const PasswordResetPage = () => {
   return (
     <Auth hasBackButton>
       {sentResetPassword === false ? (
-        <Box
-          pb={40}
-          sx={{
-            '@container (max-width: 900px)': {
-              pb: 0,
-            },
-          }}
-        >
+        <Box pb={40} sx={{ '@container (max-width: 900px)': { pb: 0 } }}>
           <Typography
             variant={'h1'}
             component={'h2'}
             mb={4}
             textAlign={'center'}
-            sx={{
-              '@container (max-width: 900px)': {
-                fontSize: 32,
-              },
-            }}
+            sx={{ '@container (max-width: 900px)': { fontSize: 32 } }}
           >
             Password reset
           </Typography>
@@ -41,24 +30,14 @@ export const PasswordResetPage = () => {
           maxWidth={392}
           ml={'auto'}
           pb={40}
-          sx={{
-            '@container (max-width: 900px)': {
-              mr: 'auto',
-              maxWidth: '100%',
-              pb: 0,
-            },
-          }}
+          sx={{ '@container (max-width: 900px)': { mr: 'auto', maxWidth: '100%', pb: 0 } }}
         >
           <Typography
             variant={'h1'}
             component={'h2'}
             mb={4}
             textAlign={'center'}
-            sx={{
-              '@container (max-width: 900px)': {
-                fontSize: 32,
-              },
-            }}
+            sx={{ '@container (max-width: 900px)': { fontSize: 32 } }}
           >
             Password sent
           </Typography>

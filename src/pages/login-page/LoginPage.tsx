@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import { LoginForm } from 'features/session'
-import { notifySuccess } from 'shared/lib'
 import { Auth } from 'widgets'
 
 export const LoginPage = () => {
@@ -12,12 +11,7 @@ export const LoginPage = () => {
         mr={20}
         mt={-8}
         sx={{
-          '@container (max-width: 900px)': {
-            maxWidth: '100%',
-            mr: 'auto',
-            ml: 'auto',
-            mt: 7,
-          },
+          '@container (max-width: 900px)': { maxWidth: '100%', mr: 'auto', ml: 'auto', mt: 7 },
         }}
       >
         <Typography
@@ -27,10 +21,7 @@ export const LoginPage = () => {
           mb={24}
           textAlign={'center'}
           sx={{
-            '@container (max-width: 900px)': {
-              mb: 10,
-              fontSize: 32,
-            },
+            '@container (max-width: 900px)': { mb: 10, fontSize: 32 },
           }}
         >
           Welcome back!

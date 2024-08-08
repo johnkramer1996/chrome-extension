@@ -6,7 +6,7 @@ import OpenInFullIcon from '@mui/icons-material/OpenInFull'
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen'
 import { IoCloseSharp } from 'react-icons/io5'
 import { useAppDispatch, useAppSelector } from 'shared/model'
-import { selectIsFull, toggleExtension, toggleMode } from 'entities/settings'
+import { selectIsFull, toggleMode } from 'entities/settings'
 
 export const Icons = () => {
   const isAuth = true //  = useAppSelector(selectIsAuth)
@@ -17,19 +17,10 @@ export const Icons = () => {
   const handleClose = () => setAnchorEl(null)
 
   const iconButtonProps: IconButtonProps = {
-    sx: {
-      '@container (max-width: 900px)': {
-        padding: 1.5,
-      },
-    },
+    sx: { '@container (max-width: 900px)': { padding: 1.5 } },
   }
   const iconProps: BoxProps = {
-    sx: {
-      fontSize: 32,
-      '@container (max-width: 900px)': {
-        fontSize: 22,
-      },
-    },
+    sx: { fontSize: 32, '@container (max-width: 900px)': { fontSize: 22 } },
   }
 
   return (
