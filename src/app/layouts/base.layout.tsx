@@ -7,9 +7,9 @@ import { DraggableLayout } from './draggable.layout'
 
 export const BaseLayout = () => {
   const isAuth = useAppSelector(selectIsAuth)
-  const currentUserState = useCurrentUserQuery(undefined, { skip: !isAuth })
+  // const currentUserState = useCurrentUserQuery(undefined, { skip: !isAuth })
 
-  if (currentUserState.isLoading) return <div>Loading</div>
+  // if (currentUserState.isLoading) return <div>Loading</div>
 
   return (
     <DraggableLayout>

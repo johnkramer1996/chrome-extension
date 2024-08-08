@@ -4,12 +4,14 @@ import { LoginFormSchema, loginFormSchema } from '../model/login-form.schema'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Box, Button, IconButton, InputAdornment, Link as LinkMui, Stack, Typography } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { PATH_PAGE } from 'shared/lib'
 import { FaGoogle } from 'react-icons/fa'
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md'
 import { GoArrowRight } from 'react-icons/go'
 import { ControlledInput } from 'shared/ui'
+import { setSessionData } from 'entities/session'
+import { useDispatch } from 'react-redux'
 
 export const LoginForm = () => {
   const methods = useForm<LoginFormSchema>({
@@ -17,9 +19,12 @@ export const LoginForm = () => {
     criteriaMode: 'all',
     defaultValues: { email: '', password: '' },
   })
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const onSubmitHandler = useCallback(async (data: LoginFormSchema) => {
-    notifySuccess('You have successfully logged in')
+    dispatch(setSessionData({ isAuth: true, accessToken: '', refreshToken: '' }))
+    navigate(PATH_PAGE.root)
   }, [])
 
   const [showPassword, setShowPassword] = useState(false)
@@ -64,7 +69,17 @@ export const LoginForm = () => {
           </Stack>
         </FormProvider>
       </form>
-      <Stack spacing={22.5} mt={22.5} maxWidth={300} mx={'auto'}>
+      <Stack
+        spacing={22.5}
+        mt={22.5}
+        maxWidth={300}
+        mx={'auto'}
+        sx={{
+          '@container (max-width: 900px)': {
+            mt: 8,
+          },
+        }}
+      >
         <Button
           color='green'
           sx={{
@@ -84,7 +99,15 @@ export const LoginForm = () => {
         >
           Log In with google
         </Button>
-        <Stack spacing={5} textAlign={'center'}>
+        <Stack
+          spacing={5}
+          textAlign={'center'}
+          sx={{
+            '@container (max-width: 900px)': {
+              mt: '32px!important',
+            },
+          }}
+        >
           <Typography variant='info'>
             By signing up, i acknowledge that i have <br />
             read and agree to the <LinkMui>Terms and Conditions</LinkMui> <br />

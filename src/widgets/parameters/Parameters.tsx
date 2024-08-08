@@ -21,15 +21,40 @@ export const Parameters = () => {
       }}
     >
       <Box>
-        <Box color={'#B5B5B5'} fontSize={14}>
+        <Box
+          color={'#B5B5B5'}
+          fontSize={14}
+          sx={{
+            '@container (max-width: 900px)': {
+              fontSize: 12,
+            },
+          }}
+        >
           Parameter 1
         </Box>
-        <Box color={'#FE5858'} fontSize={24} fontWeight={500}>
+        <Box
+          color={'#FE5858'}
+          fontSize={24}
+          fontWeight={500}
+          sx={{
+            '@container (max-width: 900px)': {
+              fontSize: 20,
+            },
+          }}
+        >
           $350,39
         </Box>
       </Box>
       <Box>
-        <Box color={'#B5B5B5'} fontSize={14}>
+        <Box
+          color={'#B5B5B5'}
+          fontSize={14}
+          sx={{
+            '@container (max-width: 900px)': {
+              fontSize: 12,
+            },
+          }}
+        >
           Parameter 2
         </Box>
         <Box

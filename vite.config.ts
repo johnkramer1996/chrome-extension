@@ -7,13 +7,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    crx({ manifest }),
-    nodePolyfills({
-      protocolImports: true,
-    }),
-  ],
+  plugins: [react(), crx({ manifest }), nodePolyfills({ protocolImports: true })],
   resolve: {
     alias: {
       app: path.resolve('src/app'),

@@ -6,7 +6,7 @@ import OpenInFullIcon from '@mui/icons-material/OpenInFull'
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen'
 import { IoCloseSharp } from 'react-icons/io5'
 import { useAppDispatch, useAppSelector } from 'shared/model'
-import { selectIsFull, toggleMode } from 'entities/settings'
+import { selectIsFull, toggleExtension, toggleMode } from 'entities/settings'
 
 export const Icons = () => {
   const isAuth = true //  = useAppSelector(selectIsAuth)
@@ -60,7 +60,7 @@ export const Icons = () => {
           <Box component={OpenInFullIcon} {...iconProps} />
         )}
       </IconButton>
-      <IconButton {...iconButtonProps}>
+      <IconButton {...iconButtonProps} onClick={() => dispatch(toggleExtension())}>
         <Box component={IoCloseSharp} {...iconProps} />
       </IconButton>
     </Stack>

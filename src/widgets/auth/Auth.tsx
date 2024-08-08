@@ -9,10 +9,20 @@ export const Auth = ({ children, hasBackButton }: { children: ReactNode; hasBack
   const navigate = useNavigate()
 
   return (
-    <Box pt={2}>
+    <Box pt={2} pb={10}>
       <Container>
         <Grid container justifyContent={'space-between'} alignItems={'center'}>
-          <Grid item xl={6} lg={9} xs={12}>
+          <Grid
+            item
+            xl={6}
+            lg={9}
+            xs={12}
+            sx={{
+              '@container (max-width: 900px)': {
+                display: 'none',
+              },
+            }}
+          >
             <Box minHeight={60}>
               {hasBackButton && (
                 <Button
@@ -27,7 +37,18 @@ export const Auth = ({ children, hasBackButton }: { children: ReactNode; hasBack
             </Box>
             <AuthIntro pl={16} maxWidth={585} />
           </Grid>
-          <Grid item xl={5} lg={3} xs={12}>
+          <Grid
+            item
+            xl={5}
+            lg={3}
+            xs={12}
+            sx={{
+              '@container (max-width: 900px)': {
+                flexBasis: '100%',
+                maxWidth: '100%',
+              },
+            }}
+          >
             {children}
           </Grid>
         </Grid>

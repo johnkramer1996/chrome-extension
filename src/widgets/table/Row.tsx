@@ -2,6 +2,7 @@ import {
   Box,
   Card,
   CardContent,
+  CardContentProps,
   Collapse,
   Grid,
   IconButton,
@@ -173,6 +174,14 @@ const RowTop = ({ open, setOpen }: Props) => {
 }
 
 const RowBottom = ({ open }: Props) => {
+  const cardContentProps: CardContentProps = {
+    sx: {
+      minHeight: '100%',
+      '@container (max-width: 900px)': {
+        py: 3,
+      },
+    },
+  }
   return (
     <TableRow>
       <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={9}>
@@ -189,6 +198,14 @@ const RowBottom = ({ open }: Props) => {
                 flexShrink={0}
                 overflow={'hidden'}
                 p={2}
+                sx={{
+                  '@container (max-width: 900px)': {
+                    width: 80,
+                    height: 80,
+                    borderRadius: 4,
+                    p: 0.5,
+                  },
+                }}
               >
                 <Box component={'img'} sx={{ maxWidth: '100%' }} src={getURL(ProcuctImage)} alt='' />
               </Box>
@@ -200,15 +217,15 @@ const RowBottom = ({ open }: Props) => {
             <Box>
               <Grid container spacing={4}>
                 <Grid item md={4} xs={12}>
-                  <Card variant='outlined'>
-                    <CardContent>
+                  <Card variant='outlined' sx={{ minHeight: '100%' }}>
+                    <CardContent {...cardContentProps}>
                       <PieChart />
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item md={4} xs={12}>
-                  <Card variant='outlined'>
-                    <CardContent>
+                  <Card variant='outlined' sx={{ minHeight: '100%' }}>
+                    <CardContent {...cardContentProps}>
                       <Stack spacing={2}>
                         <Item label='Formula changes' />
                         <Item label='Taste complaints' />
@@ -220,8 +237,8 @@ const RowBottom = ({ open }: Props) => {
                   </Card>
                 </Grid>
                 <Grid item md={4} xs={12}>
-                  <Card variant='outlined'>
-                    <CardContent>
+                  <Card variant='outlined' sx={{ minHeight: '100%' }}>
+                    <CardContent {...cardContentProps}>
                       <RadarChart />
                     </CardContent>
                   </Card>
@@ -237,13 +254,37 @@ const RowBottom = ({ open }: Props) => {
 
 const Item = ({ label }: { label: string }) => {
   return (
-    <Stack border={'1px solid'} borderColor={'#2E2E2E'} py={1.5} px={2} borderRadius={2}>
+    <Stack
+      border={'1px solid'}
+      borderColor={'#2E2E2E'}
+      py={1.5}
+      px={2}
+      borderRadius={2}
+      sx={{
+        '@container (max-width: 900px)': {},
+      }}
+    >
       <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
-        <Box fontSize={16} letterSpacing={'-.1px'}>
+        <Box
+          fontSize={16}
+          letterSpacing={'-.1px'}
+          sx={{
+            '@container (max-width: 900px)': {
+              fontSize: 14,
+            },
+          }}
+        >
           {label}
         </Box>
         <IconButton size='small'>
-          <OpenInFullIcon fontSize='small' />
+          <OpenInFullIcon
+            fontSize='small'
+            sx={{
+              '@container (max-width: 900px)': {
+                fontSize: 18,
+              },
+            }}
+          />
         </IconButton>
       </Stack>
       <Stack spacing={4} display={'none'}>
