@@ -1,6 +1,6 @@
 const container = document.createElement('div')
 container.id = 'nyle-root'
-const shadowRoot = container.attachShadow({ mode: 'open' })
+export const shadowRoot = container.attachShadow({ mode: 'open' })
 const body = document.createElement('body')
 export const shadowRootElement = document.createElement('div')
 shadowRootElement.id = 'root'

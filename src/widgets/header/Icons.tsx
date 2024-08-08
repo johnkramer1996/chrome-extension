@@ -60,7 +60,9 @@ export const Icons = () => {
           <Box component={OpenInFullIcon} {...iconProps} />
         )}
       </IconButton>
-      <IconButton {...iconButtonProps} onClick={() => dispatch(toggleExtension())}>
+      {/* TODO: ADD OPEN BUTTON */}
+      {/* onClick={() => dispatch(toggleExtension())} */}
+      <IconButton {...iconButtonProps}>
         <Box component={IoCloseSharp} {...iconProps} />
       </IconButton>
     </Stack>

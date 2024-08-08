@@ -25,6 +25,7 @@ export const LoginForm = () => {
   const onSubmitHandler = useCallback(async (data: LoginFormSchema) => {
     dispatch(setSessionData({ isAuth: true, accessToken: '', refreshToken: '' }))
     navigate(PATH_PAGE.root)
+    notifySuccess('You have successfully logged in')
   }, [])
 
   const [showPassword, setShowPassword] = useState(false)
@@ -35,7 +36,16 @@ export const LoginForm = () => {
     <>
       <form onSubmit={methods.handleSubmit(onSubmitHandler)}>
         <FormProvider {...methods}>
-          <Stack spacing={6}>
+          <Stack
+            spacing={6}
+            sx={{
+              '@container (max-width: 900px)': {
+                '& >:not(style)~:not(style)': {
+                  mt: 4,
+                },
+              },
+            }}
+          >
             <ControlledInput<LoginFormSchema> name='email' type={'text'} label='E-mail' fullWidth />
             <ControlledInput<LoginFormSchema>
               name='password'
@@ -56,7 +66,7 @@ export const LoginForm = () => {
                 ),
               }}
             />
-            <Typography variant='info' mt={'2px!important'}>
+            <Typography variant='info' mt={'2px!important'} textAlign={'left'}>
               <LinkMui component={Link} to={PATH_PAGE.passwordReset}>
                 I forgot my password
               </LinkMui>
@@ -92,6 +102,9 @@ export const LoginForm = () => {
             '&:active': {
               boxShadow: '0px 0px 20px rgba(128, 198, 122, 0.4)',
             },
+            '@container (max-width: 900px)': {
+              height: 40,
+            },
           }}
           size='large'
           fullWidth
@@ -104,7 +117,13 @@ export const LoginForm = () => {
           textAlign={'center'}
           sx={{
             '@container (max-width: 900px)': {
+              '& >:not(style)~:not(style)': {
+                mt: 2,
+              },
               mt: '32px!important',
+              '& br': {
+                display: 'none',
+              },
             },
           }}
         >

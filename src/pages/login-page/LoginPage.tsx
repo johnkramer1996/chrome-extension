@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { LoginForm } from 'features/session'
+import { notifySuccess } from 'shared/lib'
 import { Auth } from 'widgets'
 
 export const LoginPage = () => {
@@ -12,10 +13,10 @@ export const LoginPage = () => {
         mt={-8}
         sx={{
           '@container (max-width: 900px)': {
-            maxWidth: '410px',
+            maxWidth: '100%',
             mr: 'auto',
             ml: 'auto',
-            mt: 0,
+            mt: 7,
           },
         }}
       >
@@ -28,6 +29,7 @@ export const LoginPage = () => {
           sx={{
             '@container (max-width: 900px)': {
               mb: 10,
+              fontSize: 32,
             },
           }}
         >

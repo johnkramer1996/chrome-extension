@@ -44,8 +44,10 @@ export const Auth = ({ children, hasBackButton }: { children: ReactNode; hasBack
             xs={12}
             sx={{
               '@container (max-width: 900px)': {
-                flexBasis: '100%',
-                maxWidth: '100%',
+                flexBasis: '410px',
+                maxWidth: '410px',
+                margin: '0 auto',
+                textAlign: 'center',
               },
             }}
           >
