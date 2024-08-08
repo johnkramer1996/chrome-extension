@@ -226,13 +226,7 @@ const RowBottom = ({ open }: Props) => {
                 <Grid item md={4} xs={12}>
                   <Card variant='outlined' sx={{ minHeight: '100%' }}>
                     <CardContent {...cardContentProps}>
-                      <Stack spacing={2}>
-                        <Item label='Formula changes' />
-                        <Item label='Taste complaints' />
-                        <Item label='Decreased satisfaction' />
-                        <Item label='Consistency issues' />
-                        <Item label='Disappointing smell' />
-                      </Stack>
+                      <Items />
                     </CardContent>
                   </Card>
                 </Grid>
@@ -252,11 +246,46 @@ const RowBottom = ({ open }: Props) => {
   )
 }
 
-const Item = ({ label }: { label: string }) => {
+const Items = () => {
+  const [activeIndex, setActiveIndex] = useState<null | number>(null)
+
+  const onClick = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index)
+  }
+
+  return (
+    <Stack spacing={2} position={'relative'} minHeight={290}>
+      <Item isActive={activeIndex === 0} onClick={onClick} index={0} label='Formula changes' />
+      <Item isActive={activeIndex === 1} onClick={onClick} index={1} label='Taste complaints' />
+      <Item isActive={activeIndex === 2} onClick={onClick} index={2} label='Decreased satisfaction' />
+      <Item isActive={activeIndex === 3} onClick={onClick} index={3} label='Consistency issues' />
+      <Item isActive={activeIndex === 4} onClick={onClick} index={4} label='Disappointing smell' />
+    </Stack>
+  )
+}
+
+const Item = ({
+  isActive,
+  onClick,
+  index,
+  label,
+}: {
+  isActive: boolean
+  onClick: (index: number) => void
+  label: string
+  index: number
+}) => {
   return (
     <Stack
+      position={'absolute'}
+      top={isActive ? 0 : index * 50}
+      mt={isActive ? '0!important' : 0}
+      left={3}
+      right={3}
+      zIndex={isActive ? 3 : 2}
       border={'1px solid'}
       borderColor={'#2E2E2E'}
+      bgcolor={'#121212'}
       py={1.5}
       px={2}
       borderRadius={2}
@@ -276,7 +305,7 @@ const Item = ({ label }: { label: string }) => {
         >
           {label}
         </Box>
-        <IconButton size='small'>
+        <IconButton size='small' onClick={() => onClick(index)}>
           <OpenInFullIcon
             fontSize='small'
             sx={{
@@ -287,7 +316,7 @@ const Item = ({ label }: { label: string }) => {
           />
         </IconButton>
       </Stack>
-      <Stack spacing={4} display={'none'}>
+      <Stack spacing={4} display={isActive ? 'block' : 'none'}>
         <Stack spacing={2}>
           <Stack direction={'row'} spacing={2} alignItems={'center'}>
             <Box fontFamily={'Plain'}>Oportunuties</Box>
