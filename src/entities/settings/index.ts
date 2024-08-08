@@ -1,1 +1,8 @@
-export { settingsSlice, toggleMode, toggleExtension, selectMode, selectIsFull } from './model/settings.slice'
+export {
+  settingsSlice,
+  toggleMode,
+  toggleExtension,
+  selectMode,
+  selectIsFull,
+  selectIsPopup,
+} from './model/settings.slice'

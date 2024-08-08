@@ -1,5 +1,8 @@
 import { Box, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { Row } from './Row'
+import { useAppSelector } from 'shared/model'
+import { selectIsPopup } from 'entities/settings'
+import { addStyleIfTrue } from 'shared/lib'
 
 const tr = [
   'Brand',
@@ -12,40 +15,27 @@ const tr = [
 ]
 
 export const TableProducts = () => {
+  const isPopup = useAppSelector(selectIsPopup)
+
   return (
-    <Box
-      bgcolor={'#141414'}
-      borderRadius={4}
-      py={4}
-      px={6}
-      sx={{
-        '@container (max-width: 900px)': { px: 1 },
-      }}
-    >
+    <Box bgcolor={'#141414'} borderRadius={4} py={4} px={6} sx={{ ...addStyleIfTrue(isPopup, { px: 1 }) }}>
       <Table
         sx={{
           tableLayout: 'fixed',
           fontWeight: 300,
-          '@container (max-width: 900px)': { tableLayout: 'auto' },
+          ...addStyleIfTrue(isPopup, { tableLayout: 'auto' }),
         }}
       >
         <TableHead>
           <TableRow>
-            <TableCell
-              sx={{
-                width: 280,
-                '@container (max-width: 900px)': { width: 150, fontSize: 10 },
-              }}
-            >
+            <TableCell sx={{ width: 280, ...addStyleIfTrue(isPopup, { width: 150, fontSize: 10 }) }}>
               Product Name
             </TableCell>
             {tr.map((el, i) => {
               return (
                 <TableCell
                   key={i}
-                  sx={{
-                    '@container (max-width: 900px)': { fontSize: 10, padding: '2px 1px', maxWidth: 75 },
-                  }}
+                  sx={{ ...addStyleIfTrue(isPopup, { fontSize: 10, padding: '2px 1px', maxWidth: 75 }) }}
                 >
                   <Box dangerouslySetInnerHTML={{ __html: el }}></Box>
                 </TableCell>

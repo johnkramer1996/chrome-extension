@@ -5,13 +5,15 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Box, Button, IconButton, InputAdornment, Link as LinkMui, Stack, Typography } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
-import { PATH_PAGE } from 'shared/lib'
+import { addStyleIfTrue, PATH_PAGE } from 'shared/lib'
 import { FaGoogle } from 'react-icons/fa'
 import { MdOutlineVisibility, MdOutlineVisibilityOff } from 'react-icons/md'
 import { GoArrowRight } from 'react-icons/go'
 import { ControlledInput } from 'shared/ui'
 import { setSessionData } from 'entities/session'
 import { useDispatch } from 'react-redux'
+import { selectIsPopup } from 'entities/settings'
+import { useAppSelector } from 'shared/model'
 
 export const LoginForm = () => {
   const methods = useForm<LoginFormSchema>({
@@ -21,6 +23,7 @@ export const LoginForm = () => {
   })
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const isPopup = useAppSelector(selectIsPopup)
 
   const onSubmitHandler = useCallback(async (data: LoginFormSchema) => {
     dispatch(setSessionData({ isAuth: true, accessToken: '', refreshToken: '' }))
@@ -36,7 +39,12 @@ export const LoginForm = () => {
     <>
       <form onSubmit={methods.handleSubmit(onSubmitHandler)}>
         <FormProvider {...methods}>
-          <Stack spacing={6} sx={{ '@container (max-width: 900px)': { '& >:not(style)~:not(style)': { mt: 4 } } }}>
+          <Stack
+            spacing={6}
+            sx={{
+              ...addStyleIfTrue(isPopup, { '& >:not(style)~:not(style)': { mt: 4 } }),
+            }}
+          >
             <ControlledInput<LoginFormSchema> name='email' type={'text'} label='E-mail' fullWidth />
             <ControlledInput<LoginFormSchema>
               name='password'
@@ -70,7 +78,13 @@ export const LoginForm = () => {
           </Stack>
         </FormProvider>
       </form>
-      <Stack spacing={22.5} mt={22.5} maxWidth={300} mx={'auto'} sx={{ '@container (max-width: 900px)': { mt: 8 } }}>
+      <Stack
+        spacing={22.5}
+        mt={22.5}
+        maxWidth={300}
+        mx={'auto'}
+        sx={{ ...addStyleIfTrue(isPopup, { mt: 8, '& >:not(style)~:not(style)': { mt: 8 } }) }}
+      >
         <Button
           color='green'
           sx={{
@@ -78,7 +92,7 @@ export const LoginForm = () => {
             color: 'green.main',
             '&:hover': { bgcolor: 'rgba(128, 198, 122, .4)', color: 'green.main' },
             '&:active': { boxShadow: '0px 0px 20px rgba(128, 198, 122, 0.4)' },
-            '@container (max-width: 900px)': { height: 40 },
+            ...addStyleIfTrue(isPopup, { height: 40 }),
           }}
           size='large'
           fullWidth
@@ -90,11 +104,10 @@ export const LoginForm = () => {
           spacing={5}
           textAlign={'center'}
           sx={{
-            '@container (max-width: 900px)': {
+            ...addStyleIfTrue(isPopup, {
               '& >:not(style)~:not(style)': { mt: 2 },
-              mt: '32px!important',
               '& br': { display: 'none' },
-            },
+            }),
           }}
         >
           <Typography variant='info'>

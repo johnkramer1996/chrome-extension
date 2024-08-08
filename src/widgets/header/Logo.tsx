@@ -1,11 +1,11 @@
 import { Link as LinkMui } from '@mui/material'
-import { selectIsFull } from 'entities/settings'
+import { selectIsFull, selectIsPopup } from 'entities/settings'
 import { Link } from 'react-router-dom'
-import { PATH_PAGE } from 'shared/lib'
+import { addStyleIfTrue, PATH_PAGE } from 'shared/lib'
 import { useAppSelector } from 'shared/model'
 
 export const Logo = () => {
-  const isFull = useAppSelector(selectIsFull)
+  const isPopup = useAppSelector(selectIsPopup)
 
   return (
     <LinkMui
@@ -13,24 +13,14 @@ export const Logo = () => {
       to={PATH_PAGE.root}
       sx={{
         transition: 'filter .3s',
-        path: {
-          transition: 'fill .3s',
-        },
-        '&:hover': {
-          path: {
-            fill: '#7C7C78',
-          },
-        },
-        '&:active': {
-          filter: 'drop-shadow(0px 0px 20px rgba(92, 92, 90, 0.37))',
-        },
+        path: { transition: 'fill .3s' },
+        '&:hover': { path: { fill: '#7C7C78' } },
+        '&:active': { filter: 'drop-shadow(0px 0px 20px rgba(92, 92, 90, 0.37))' },
         lineHeight: 0,
         '& svg': {
           maxWidth: '100%',
         },
-        '@container (max-width: 900px)': {
-          width: 65,
-        },
+        ...addStyleIfTrue(isPopup, { width: 65 }),
       }}
     >
       <svg width='71' height='32' viewBox='0 0 71 32' fill='none' xmlns='http://www.w3.org/2000/svg'>

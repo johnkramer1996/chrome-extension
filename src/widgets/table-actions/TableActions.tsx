@@ -2,8 +2,13 @@ import { Box, Button, ButtonProps, InputAdornment, Stack, TextField } from '@mui
 import { GrFilter } from 'react-icons/gr'
 import { RiDownloadLine } from 'react-icons/ri'
 import { IoSearchSharp } from 'react-icons/io5'
+import { addStyleIfTrue } from 'shared/lib'
+import { useAppSelector } from 'shared/model'
+import { selectIsPopup } from 'entities/settings'
 
 export const TableActions = () => {
+  const isPopup = useAppSelector(selectIsPopup)
+
   const buttonProps: ButtonProps = {
     sx: {
       height: { lg: 44, xs: 40 },
@@ -13,7 +18,7 @@ export const TableActions = () => {
       textTransform: 'none',
       fontWeight: 400,
       '&:hover': { boxShadow: '0px 0px 5px rgba(82, 149, 224, 0.5)' },
-      '@container (max-width: 900px)': { height: 40, fontSize: 14 },
+      ...addStyleIfTrue(isPopup, { height: 40, fontSize: 14 }),
     },
   }
 
@@ -37,7 +42,7 @@ export const TableActions = () => {
                 height: { lg: 44, xs: 40 },
                 border: 'none',
                 '& input::placeholder': { color: '#fff', opacity: '1' },
-                '@container (max-width: 900px)': { height: 40 },
+                ...addStyleIfTrue(isPopup, { height: 40 }),
               },
               startAdornment: (
                 <InputAdornment position='start'>
@@ -50,9 +55,7 @@ export const TableActions = () => {
         <Button
           color='dark'
           {...buttonProps}
-          startIcon={
-            <Box component={GrFilter} sx={{ '@container (max-width: 900px)': { fontSize: '16px!important' } }} />
-          }
+          startIcon={<Box component={GrFilter} sx={{ ...addStyleIfTrue(isPopup, { fontSize: '16px!important' }) }} />}
         >
           Filters
         </Button>
@@ -65,7 +68,7 @@ export const TableActions = () => {
           fontSize: 16,
         }}
         startIcon={
-          <Box component={RiDownloadLine} sx={{ '@container (max-width: 900px)': { fontSize: '20px!important' } }} />
+          <Box component={RiDownloadLine} sx={{ ...addStyleIfTrue(isPopup, { fontSize: '20px!important' }) }} />
         }
       >
         Download CSV

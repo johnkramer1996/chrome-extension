@@ -1,8 +1,13 @@
-import { Box, Typography } from '@mui/material'
+import { Box, SxProps, Typography } from '@mui/material'
+import { selectIsFull, selectIsPopup } from 'entities/settings'
 import { LoginForm } from 'features/session'
+import { addStyleIfTrue } from 'shared/lib'
+import { useAppSelector } from 'shared/model'
 import { Auth } from 'widgets'
 
 export const LoginPage = () => {
+  const isPopup = useAppSelector(selectIsPopup)
+
   return (
     <Auth>
       <Box
@@ -10,9 +15,7 @@ export const LoginPage = () => {
         ml={'auto'}
         mr={20}
         mt={-8}
-        sx={{
-          '@container (max-width: 900px)': { maxWidth: '100%', mr: 'auto', ml: 'auto', mt: 7 },
-        }}
+        sx={{ ...addStyleIfTrue(isPopup, { maxWidth: '100%', mr: 'auto', ml: 'auto', mt: 7 }) }}
       >
         <Typography
           variant={'h1'}
@@ -20,9 +23,7 @@ export const LoginPage = () => {
           fontSize={48}
           mb={24}
           textAlign={'center'}
-          sx={{
-            '@container (max-width: 900px)': { mb: 10, fontSize: 32 },
-          }}
+          sx={{ ...addStyleIfTrue(isPopup, { mb: 10, fontSize: 32 }) }}
         >
           Welcome back!
         </Typography>

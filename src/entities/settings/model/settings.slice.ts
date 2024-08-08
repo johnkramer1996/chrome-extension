@@ -25,6 +25,7 @@ export const settingsSlice = createSlice({
 
 export const selectMode = (state: RootState) => state.settings.mode
 export const selectIsFull = (state: RootState) => state.settings.mode === 'full'
+export const selectIsPopup = (state: RootState) => state.settings.mode === 'popup'
 export const selectStatus = (state: RootState) => state.settings.status
 
 export const { toggleMode, toggleExtension } = settingsSlice.actions

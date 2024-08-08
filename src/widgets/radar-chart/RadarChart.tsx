@@ -1,5 +1,8 @@
 import { Box, IconButton, Tooltip } from '@mui/material'
+import { selectIsPopup } from 'entities/settings'
 import { Radar, RadarChart, PolarGrid, ResponsiveContainer, Pie, PieChart, Cell } from 'recharts'
+import { addStyleIfTrue } from 'shared/lib'
+import { useAppSelector } from 'shared/model'
 import { Parameters } from 'widgets'
 
 const data = [
@@ -36,12 +39,14 @@ const data = [
 ]
 
 export const CustomedRadarChart = () => {
+  const isPopup = useAppSelector(selectIsPopup)
+
   return (
     <Box height={255} position={'relative'}>
       <Box>
         <Tooltip
           title={
-            <Box sx={{ '@container (max-width: 900px)': { fontSize: 11 } }}>
+            <Box sx={{ ...addStyleIfTrue(isPopup, { fontSize: 11 }) }}>
               Summary metric describing optimal coverage Dynamic pricing discount, coupon, subscribe and save), Content
               score and Aspect score, and increased Contribution Profit
             </Box>

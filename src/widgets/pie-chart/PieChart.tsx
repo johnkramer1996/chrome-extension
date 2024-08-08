@@ -1,16 +1,17 @@
-import { Box, Stack } from '@mui/material'
-import { selectIsFull } from 'entities/settings'
+import { Box } from '@mui/material'
+import { selectIsPopup } from 'entities/settings'
 import { Pie, PieChart, Cell } from 'recharts'
+import { addStyleIfTrue } from 'shared/lib'
 import { useAppSelector } from 'shared/model'
 import { Parameters } from 'widgets'
 
 export const CustomedPieChart = () => {
-  const isFull = useAppSelector(selectIsFull)
+  const isPopup = useAppSelector(selectIsPopup)
 
-  const div = isFull ? 1 : 1.3
+  const div = isPopup ? 1.3 : 1
 
   return (
-    <Box height={255} position={'relative'} pt={2} sx={{ '@container (max-width: 900px)': { pt: 7 } }}>
+    <Box height={255} position={'relative'} pt={2} sx={{ ...addStyleIfTrue(isPopup, { pt: 7 }) }}>
       <PieChart width={280 / div} height={140 / div} style={{ margin: '0 auto' }}>
         <Pie
           data={[
@@ -31,10 +32,10 @@ export const CustomedPieChart = () => {
         </Pie>
       </PieChart>
       <Box position={'absolute'} top={'85px'} left={0} right={0} zIndex={3} textAlign={'center'}>
-        <Box fontSize={16} sx={{ '@container (max-width: 900px)': { fontSize: 13 } }}>
+        <Box fontSize={16} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 13 }) }}>
           Summary
         </Box>
-        <Box fontSize={34} lineHeight={1.3} fontWeight={700} sx={{ '@container (max-width: 900px)': { fontSize: 27 } }}>
+        <Box fontSize={34} lineHeight={1.3} fontWeight={700} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 27 }) }}>
           $22.870
         </Box>
       </Box>

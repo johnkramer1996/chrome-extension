@@ -1,6 +1,11 @@
 import { Box, Stack } from '@mui/material'
+import { selectIsPopup } from 'entities/settings'
+import { addStyleIfTrue } from 'shared/lib'
+import { useAppSelector } from 'shared/model'
 
 export const Parameters = () => {
+  const isPopup = useAppSelector(selectIsPopup)
+
   return (
     <Stack
       position={'absolute'}
@@ -13,39 +18,21 @@ export const Parameters = () => {
       mt={1}
       pl={9}
       pr={4}
-      sx={{
-        '@container (max-width: 900px)': { pl: 0, pr: 0 },
-      }}
+      sx={{ ...addStyleIfTrue(isPopup, { pl: 0, pr: 0 }) }}
     >
       <Box>
-        <Box
-          color={'#B5B5B5'}
-          fontSize={14}
-          sx={{
-            '@container (max-width: 900px)': { fontSize: 12 },
-          }}
-        >
+        <Box color={'#B5B5B5'} fontSize={14} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 12 }) }}>
           Parameter 1
         </Box>
-        <Box
-          color={'#FE5858'}
-          fontSize={24}
-          fontWeight={500}
-          sx={{ '@container (max-width: 900px)': { fontSize: 20 } }}
-        >
+        <Box color={'#FE5858'} fontSize={24} fontWeight={500} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 20 }) }}>
           $350,39
         </Box>
       </Box>
       <Box>
-        <Box color={'#B5B5B5'} fontSize={14} sx={{ '@container (max-width: 900px)': { fontSize: 12 } }}>
+        <Box color={'#B5B5B5'} fontSize={14} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 12 }) }}>
           Parameter 2
         </Box>
-        <Box
-          color={'#8AFF6C'}
-          fontSize={24}
-          fontWeight={500}
-          sx={{ '@container (max-width: 900px)': { fontSize: 20 } }}
-        >
+        <Box color={'#8AFF6C'} fontSize={24} fontWeight={500} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 20 }) }}>
           $1.350,39
         </Box>
       </Box>

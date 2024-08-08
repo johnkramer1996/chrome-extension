@@ -3,6 +3,9 @@ import OpenInFullIcon from '@mui/icons-material/OpenInFull'
 import { AiOutlineInfo } from 'react-icons/ai'
 import { IoArrowUp } from 'react-icons/io5'
 import { useState } from 'react'
+import { useAppSelector } from 'shared/model'
+import { selectIsPopup } from 'entities/settings'
+import { addStyleIfTrue } from 'shared/lib'
 
 const items = [
   'Formula changes',
@@ -39,6 +42,8 @@ const Item = ({
   label: string
   index: number
 }) => {
+  const isPopup = useAppSelector(selectIsPopup)
+
   return (
     <Stack
       position={'absolute'}
@@ -53,16 +58,13 @@ const Item = ({
       py={1.5}
       px={2}
       borderRadius={2}
-      sx={{
-        '@container (max-width: 900px)': {},
-      }}
     >
       <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
-        <Box fontSize={16} letterSpacing={'-.1px'} sx={{ '@container (max-width: 900px)': { fontSize: 14 } }}>
+        <Box fontSize={16} letterSpacing={'-.1px'} sx={{ ...addStyleIfTrue(isPopup, { fontSize: 14 }) }}>
           {label}
         </Box>
         <IconButton size='small' onClick={() => onClick(index)}>
-          <OpenInFullIcon fontSize='small' sx={{ '@container (max-width: 900px)': { fontSize: 18 } }} />
+          <OpenInFullIcon fontSize='small' sx={{ ...addStyleIfTrue(isPopup, { fontSize: 18 }) }} />
         </IconButton>
       </Stack>
       <Stack spacing={4} display={isActive ? 'block' : 'none'}>

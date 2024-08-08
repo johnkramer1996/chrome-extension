@@ -21,8 +21,10 @@ import { RadarChart, PieChart } from 'widgets'
 import { IoMdStar } from 'react-icons/io'
 import { PiCopySimple } from 'react-icons/pi'
 import { CgArrowTopRight } from 'react-icons/cg'
-import { getURL } from 'shared/lib'
+import { addStyleIfTrue, getURL } from 'shared/lib'
 import { Items } from './Items'
+import { useAppSelector } from 'shared/model'
+import { selectIsPopup } from 'entities/settings'
 
 export const Row = () => {
   const [open, setOpen] = useState(false)
@@ -38,14 +40,10 @@ export const Row = () => {
 type Props = { open: boolean; setOpen: (open: boolean) => void }
 
 const RowTop = ({ open, setOpen }: Props) => {
+  const isPopup = useAppSelector(selectIsPopup)
+
   const tableCellProps: TableCellProps = {
-    sx: {
-      '@container (max-width: 900px)': {
-        fontSize: 12,
-        paddingTop: '13px',
-        paddingBottom: '13px',
-      },
-    },
+    sx: { ...addStyleIfTrue(isPopup, { fontSize: 12, paddingTop: '13px', paddingBottom: '13px' }) },
   }
 
   return (
@@ -55,7 +53,7 @@ const RowTop = ({ open, setOpen }: Props) => {
           direction={'row'}
           spacing={2}
           alignItems={'center'}
-          sx={{ '@container (max-width: 900px)': { flexDirection: 'column', alignItems: 'flex-start' } }}
+          sx={{ ...addStyleIfTrue(isPopup, { flexDirection: 'column', alignItems: 'flex-start' }) }}
         >
           <Box
             width={54}
@@ -65,24 +63,17 @@ const RowTop = ({ open, setOpen }: Props) => {
             bgcolor={'#fff'}
             flexShrink={0}
             overflow={'hidden'}
-            sx={{
-              '@container (max-width: 900px)': { width: 32, height: 32 },
-            }}
+            sx={{ ...addStyleIfTrue(isPopup, { width: 32, height: 32 }) }}
           >
             <Box component={'img'} sx={{ maxWidth: '100%' }} src={getURL(ProcuctImage)} alt='' />
           </Box>
-          <Box sx={{ '@container (max-width: 900px)': { margin: '10px 0 0!important' } }}>
+          <Box sx={{ ...addStyleIfTrue(isPopup, { margin: '10px 0 0!important' }) }}>
             <Box
               whiteSpace={'nowrap'}
               textOverflow={'ellipsis'}
               overflow={'hidden'}
               width={190}
-              sx={{
-                '@container (max-width: 900px)': {
-                  width: 120,
-                  fontSize: 12,
-                },
-              }}
+              sx={{ ...addStyleIfTrue(isPopup, { width: 120, fontSize: 12 }) }}
             >
               WEEM Biotin Gummies for Hair, Skin and Nails - Vegan Vitamins for Men & Women, Supports Faster Hair Growth
               and Stronger Nails - Extra Strength 10,000mcg
@@ -133,7 +124,7 @@ const RowTop = ({ open, setOpen }: Props) => {
           <Box
             component={CgArrowTopRight}
             fontSize={20}
-            sx={{ '@container (max-width: 900px)': { position: 'relative', top: -2 } }}
+            sx={{ ...addStyleIfTrue(isPopup, { position: 'relative', top: -2 }) }}
           />
         </Stack>
       </TableCell>
@@ -152,9 +143,12 @@ const RowTop = ({ open, setOpen }: Props) => {
 }
 
 const RowBottom = ({ open }: Props) => {
+  const isPopup = useAppSelector(selectIsPopup)
+
   const cardContentProps: CardContentProps = {
-    sx: { minHeight: '100%', '@container (max-width: 900px)': { py: 3 } },
+    sx: { minHeight: '100%', ...addStyleIfTrue(isPopup, { py: 3 }) },
   }
+
   return (
     <TableRow>
       <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={9}>
@@ -171,7 +165,7 @@ const RowBottom = ({ open }: Props) => {
                 flexShrink={0}
                 overflow={'hidden'}
                 p={2}
-                sx={{ '@container (max-width: 900px)': { width: 80, height: 80, borderRadius: 4, p: 0.5 } }}
+                sx={{ ...addStyleIfTrue(isPopup, { width: 80, height: 80, borderRadius: 4, p: 0.5 }) }}
               >
                 <Box component={'img'} sx={{ maxWidth: '100%' }} src={getURL(ProcuctImage)} alt='' />
               </Box>

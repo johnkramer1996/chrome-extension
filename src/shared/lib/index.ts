@@ -1,4 +1,5 @@
 export { fileSizeValidations, extenstionValidation, imageDimensionsValidation } from './validation'
+export { addStyleIfTrue } from './add-style-if-true'
 export { config } from './config'
 export { errorHandler } from './error-handler'
 export { getFileSize } from './get-file-size'

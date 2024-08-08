@@ -1,25 +1,28 @@
 import { Box, Button, Typography } from '@mui/material'
+import { selectIsPopup } from 'entities/settings'
 import { PasswordResetForm, PasswordSentForm } from 'features/session'
 import { useState } from 'react'
 import { GoArrowLeft } from 'react-icons/go'
 import { useNavigate } from 'react-router-dom'
-import { PATH_PAGE } from 'shared/lib'
+import { addStyleIfTrue, PATH_PAGE } from 'shared/lib'
+import { useAppSelector } from 'shared/model'
 import { Auth } from 'widgets'
 
 export const PasswordResetPage = () => {
   const [sentResetPassword, setSentResetPassword] = useState(false)
   const navigate = useNavigate()
+  const isPopup = useAppSelector(selectIsPopup)
 
   return (
     <Auth hasBackButton>
       {sentResetPassword === false ? (
-        <Box pb={40} sx={{ '@container (max-width: 900px)': { pb: 0 } }}>
+        <Box pb={40} sx={{ ...addStyleIfTrue(isPopup, { pb: 0 }) }}>
           <Typography
             variant={'h1'}
             component={'h2'}
             mb={4}
             textAlign={'center'}
-            sx={{ '@container (max-width: 900px)': { fontSize: 32 } }}
+            sx={{ ...addStyleIfTrue(isPopup, { fontSize: 32 }) }}
           >
             Password reset
           </Typography>
@@ -30,14 +33,14 @@ export const PasswordResetPage = () => {
           maxWidth={392}
           ml={'auto'}
           pb={40}
-          sx={{ '@container (max-width: 900px)': { mr: 'auto', maxWidth: '100%', pb: 0 } }}
+          sx={{ ...addStyleIfTrue(isPopup, { mr: 'auto', maxWidth: '100%', pb: 0 }) }}
         >
           <Typography
             variant={'h1'}
             component={'h2'}
             mb={4}
             textAlign={'center'}
-            sx={{ '@container (max-width: 900px)': { fontSize: 32 } }}
+            sx={{ ...addStyleIfTrue(isPopup, { fontSize: 32 }) }}
           >
             Password sent
           </Typography>
