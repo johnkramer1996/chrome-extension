@@ -138,16 +138,3 @@ table {
 *::after {
   box-sizing: border-box;
 }
-
-body {
-  /* background: linear-gradient(
-    295.01deg,
-    #92c5ff 2.69%,
-    rgba(59, 78, 106, 0.814312) 10.71%,
-    rgba(5, 5, 15, 0.7) 23.66%,
-    #05050f 36.23%,
-    rgba(5, 5, 15, 0.6) 66.55%,
-    rgba(64, 86, 116, 0.769137) 83.87%,
-    #92c5ff 94.18%
-  ); */
-}

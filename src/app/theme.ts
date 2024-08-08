@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material'
+import { shadowRootElement } from './shadowRootElement'
 
 export const COLORS = {
   primary: '#5295E0',
@@ -247,6 +248,9 @@ export const theme = createTheme({
       },
     },
     MuiPopover: {
+      defaultProps: {
+        container: shadowRootElement,
+      },
       styleOverrides: {
         paper: {
           fontSize: 12,
@@ -256,6 +260,16 @@ export const theme = createTheme({
           textAlign: 'center',
           filter: 'drop-shadow(0px 6px 32px rgba(0, 0, 0, 0.15))',
         },
+      },
+    },
+    MuiPopper: {
+      defaultProps: {
+        container: shadowRootElement,
+      },
+    },
+    MuiModal: {
+      defaultProps: {
+        container: shadowRootElement,
       },
     },
     MuiTooltip: {

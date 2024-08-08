@@ -105,7 +105,7 @@ const RowTop = ({ open, setOpen }: Props) => {
             </Box>
             <Stack direction={'row'} alignItems={'center'} alignContent={'flex-start'} spacing={1}>
               <Box lineHeight={'0'}>
-                <img src={FlagsUSA} alt='' />
+                <img src={getURL(FlagsUSA)} alt='' />
               </Box>
               <Stack direction={'row'} alignItems={'center'} spacing={2} sx={{ cursor: 'pointer' }}>
                 <Box fontSize={12} fontWeight={700} lineHeight={1}>
@@ -190,7 +190,7 @@ const RowBottom = ({ open }: Props) => {
                 overflow={'hidden'}
                 p={2}
               >
-                <Box component={'img'} sx={{ maxWidth: '100%' }} src={ProcuctImage} alt='' />
+                <Box component={'img'} sx={{ maxWidth: '100%' }} src={getURL(ProcuctImage)} alt='' />
               </Box>
               <Typography variant='body1' component={'p'} fontFamily={'Plain'}>
                 WEEM Biotin Gummies for Hair, Skin and Nails - Vegan Vitamins for Men & Women, Supports Faster Hair
