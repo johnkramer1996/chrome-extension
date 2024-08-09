@@ -234,7 +234,6 @@ export const theme = createTheme({
         paper: {
           fontSize: 12,
           maxWidth: 330,
-          padding: '12px 19px',
           borderRadius: 8,
           textAlign: 'center',
           filter: 'drop-shadow(0px 6px 32px rgba(0, 0, 0, 0.15))',
@@ -256,7 +255,7 @@ export const theme = createTheme({
         tooltip: {
           fontSize: 12,
           maxWidth: 330,
-          padding: '12px 19px',
+          padding: '12px 20px',
           borderRadius: 8,
           textAlign: 'center',
           filter: 'drop-shadow(0px 6px 32px rgba(0, 0, 0, 0.15))',
