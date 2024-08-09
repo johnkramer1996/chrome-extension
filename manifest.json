@@ -2,7 +2,14 @@
   "manifest_version": 3,
   "name": "Nyle",
   "version": "1.0.0",
-  "action": { "default_popup": "index.html" },
+  "action": {
+    "default_title": "Nyle",
+    "default_description": "Click to open"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "src/background.ts"
+  },
   "icons": {
     "16": "logo_16px.png",
     "32": "logo_32px.png",
@@ -11,7 +18,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.amazon.com/*"],
+      "matches": ["<all_urls>"],
       "js": ["./src/main.tsx"],
       "media": []
     }

@@ -1,7 +1,7 @@
 import { BsQuestionCircle } from 'react-icons/bs'
 import { IoSettingsOutline } from 'react-icons/io5'
 import { Box, BoxProps, IconButton, IconButtonProps, IconProps, Menu, MenuItem, Popover, Stack } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import OpenInFullIcon from '@mui/icons-material/OpenInFull'
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen'
 import { IoCloseSharp } from 'react-icons/io5'
@@ -24,6 +24,13 @@ export const Icons = () => {
     sx: { fontSize: 32, ...addStyleIfTrue(isPopup, { fontSize: 22 }) },
   }
 
+  const onClose = () => {
+    const container = document.getElementById('nyle-root')!
+    container.classList.remove('active')
+    container.style.opacity = '0'
+    container.style.visibility = 'hidden'
+  }
+
   return (
     <Stack direction={'row'}>
       <QuestionIcon iconButtonProps={iconButtonProps} iconProps={iconProps} />
@@ -39,7 +46,7 @@ export const Icons = () => {
           <Box component={OpenInFullIcon} {...iconProps} />
         )}
       </IconButton>
-      <IconButton {...iconButtonProps} onClick={() => dispatch(toggleExtension())}>
+      <IconButton {...iconButtonProps} onClick={onClose}>
         <Box component={IoCloseSharp} {...iconProps} />
       </IconButton>
     </Stack>

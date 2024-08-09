@@ -8,6 +8,7 @@ import { selectStatus } from 'entities/settings/model/settings.slice'
 export const DraggableLayout = ({ children }: { children: ReactNode }) => {
   const constraintsRef = useRef(null)
   const isFull = useAppSelector(selectIsFull)
+  //  TODO: DELETE
   const status = useAppSelector(selectStatus)
 
   const defaultBoxProps: BoxProps = {
@@ -36,8 +37,6 @@ export const DraggableLayout = ({ children }: { children: ReactNode }) => {
           display: 'flex',
           placeContent: 'center',
           placeItems: 'center',
-          visibility: status === 'open' ? 'visible' : 'hidden',
-          opacity: status === 'open' ? '1' : '0',
           transition: 'all .5s',
         },
         '& .item': {
